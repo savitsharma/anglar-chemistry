@@ -39,28 +39,29 @@ z-index: 1000; /* Ensure navbar stays above other content */ ">
     <mat-sidenav #sidenav opened="true" mode="side" [class.mat-elevation-z4]="true" class="app-sidenav" style="margin-top:64px">
         <mat-nav-list>
             <mat-list-item routerLink="/dashboard">
-                <img src="../../../assets/icon/dashbord.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 1px; margin-left:1px;">dashboard
+                <img src="../../../assets/icon/dashbord.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 1px; margin-left:1px;">Ketcher
             </mat-list-item>
             <mat-expansion-panel [class.mat-elevation-z0]="true">
                 <mat-expansion-panel-header>
                     <button routerLinkActive="buttonColor" mat-button routerLink="/categories">
-                        <img src="../../../assets/icon/category.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 8px;">category
+                        <img src="../../../assets/icon/category.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 8px;">Dashboard
                     </button>
                 </mat-expansion-panel-header>
                 <mat-nav-list>
                     <mat-list-item>
                         <button routerLink="/categories/main" mat-button>
-                            <img src="../../../assets/icon/folder-file.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 8px;">Main
+                            <img src="../../../assets/icon/folder-file.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 8px;">Reaction
                         </button>
                     </mat-list-item>
                     <mat-list-item>
                         <button routerLink="/categories/sub" mat-button>
-                            <img src="../../../assets/icon/reaction.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 8px;">Sub
+                            <img src="../../../assets/icon/reaction.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 8px;">Substance
                         </button>
                     </mat-list-item>
                 </mat-nav-list>
             </mat-expansion-panel>
             <mat-list-item>
+
                 <button mat-button routerLink="/structure">
                     <img src="../../../assets/icon/chemistry-svgrepo-com.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 8px;">Structure
                 </button></mat-list-item>
@@ -100,6 +101,8 @@ z-index: 1000; /* Ensure navbar stays above other content */ ">
             </mat-expansion-panel>
         </mat-nav-list>
     </mat-sidenav>
+
+    
     <mat-sidenav-content>
         <div style="text-align: center; min-height: 600px;margin-top:67px;">
             <router-outlet></router-outlet>

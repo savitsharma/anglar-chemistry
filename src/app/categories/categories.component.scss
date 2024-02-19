@@ -6,43 +6,43 @@
 
 
 .ketcher-container {
-    border: 1px solid #cdccd88e; /* Example border style */
-    padding: 5px; /* Example padding */
-    margin-bottom: 10px; /* Example margin */
+    border: 1px solid #cdccd88e; 
+    padding: 5px; 
+    margin-bottom: 10px;
     border-radius: 5px;
+    height: 100%;
 }
 
 .label-wrapper {
-    display: flex; /* Arrange the label containers horizontally */
+    display: flex; 
   }
   
   .label-container {
-    margin-right: 20px; /* Adjust the spacing between label containers */
+    margin-right: 20px; 
   }
   
   .ketcher-label {
-    position: relative; /* Positioning for the underline */
+    position: relative;
   }
   
   .ketcher-label::after {
     content: '';
-    position: absolute; /* Position the underline relative to the label */
-    bottom: -5px; /* Adjust the distance of the underline from the label */
-    left: 0; /* Start the underline from the beginning of the label */
-    width: 72%; /* Ensure the underline spans the entire width of the label */
-    height: 2px; /* Set the thickness of the underline */
-    background-color: #227fa3 /* Change the color as needed */
+    position: absolute; 
+    bottom: -5px; 
+    left: 0;
+    width: 72%;
+    height: 2px; 
+    // background-color: #227fa3;
+    background-color: #0056b3;
   }
   
 .icon {
-    /* Add your icon's styles here */
-    margin-right: 3px; /* Example: Add some margin to the right of the icon */
+    margin-right: 3px; 
   }
   
   .ketcher-label {
-    /* Add your label's styles here */
-    font-weight: 300; /* Example: Make the label bold */
-    margin-bottom: 17px; /* Example margin */
+    font-weight: 300; 
+    margin-bottom: 17px; 
     margin-right: 20px;
     margin-left: 30px;
   }
@@ -80,17 +80,23 @@
     border-radius: 3px;    
   }
 
-  /* Custom CSS for button colors */
 .btn-cancel {
-    background-color: #6c757d; /* Change to desired color */
-    color: white; /* Text color */
-    border-color: #0a76d6; /* Border color */
+    // background-color: #6c757d; 
+    // background-color: #731f1f;
+    color:#e55743;;
+    border-color: opx #e55743;
+    border-radius: 4px;
+  }
+  .btn-cancel:hover{
+    background-color:#e55743;;
+    color: white;
+
   }
   
   .btn-search {
-    background-color: #28a745; /* Change to desired color */
-    color: rgb(205, 43, 43); /* Text color */
-    border-color: #052a0e; /* Border color */
+    background-color: #28a745; 
+    color: rgb(205, 43, 43); 
+    border-color: #052a0e; 
   }
   
   .search-input{
@@ -99,25 +105,22 @@
   }
 
 
-/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .container {
       margin-top: 5px;
-      margin-bottom: 50px; /* Adjusted margin for smaller devices */
+      margin-bottom: 50px; 
       font-family: "Jost", sans-serif;
     }
   
     .col-md-2 {
-      padding-top: 20px; /* Adjusted padding for smaller devices */
+      padding-top: 20px; 
     }
   }
   
-  /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
     /* No specific changes */
   }
   
-  /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
     /* No specific changes */
   }
@@ -130,5 +133,36 @@
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
     /* No specific changes */
+  }
+  
+  .searchBar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .search-input {
+    width: calc(100% - 3.5rem);
+    height: 2.8rem;
+    background: #f5f5f5;
+    outline: none;
+    border: none;
+    border-radius: 1.625rem;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .search-button {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  
+  .search-button:hover {
+    cursor: pointer;
   }
   
