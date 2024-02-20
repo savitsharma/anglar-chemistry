@@ -30,7 +30,20 @@
     <div class="line"></div>
 
 </div>
-<div class="row" style="margin-top: 2px; margin-bottom: 22px; padding:20px">
+<div class="container">
+  <div class="search">
+    <input class="side" id="searchQueryInput" [(ngModel)]="searchFilter.zincId" (keyup)="onFocusEvent($event)"  type="text" class="search-input" placeholder="Search smiles here...">
+    <div class="button-src">
+        <button (click)="zincSearch()">Search</button>
+    </div>
+ </div>
+ <div *ngIf="imageZincData">
+  <img [src]="imageZincData" alt="Molecular Formula Structure">
+</div>
+
+</div>
+
+<div class="row">
   <div class="col-md-3">
     <div class="card" data-state="#about">
       <div class="horizontal-items">
@@ -41,6 +54,8 @@
           </div>
         </div>
       </div>
+
+<!-- <div *ngIf="chemistryDetails">
       <div class="card-header">
         <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2" class="structure">
       </div>
@@ -49,7 +64,7 @@
           <table>
             <tr>
                 <th>Zinc Id:</th>
-                <td>123-45-6</td>
+                <td>{{chemistryDetails.zincId}}</td>
             </tr>
             <tr>
                 <th>IUPAC name:</th>
@@ -65,6 +80,8 @@
             </tr>
         </table>
         </div>
+
+
         <div class="card-section" id="experience" style="display: none;">
           <div class="card-content scrollbar">
             <div class="card-subtitle">WORK EXPERIENCE</div>
@@ -106,6 +123,8 @@
           </div>
         </div>
       </div>
+    </div> -->
+
       <div class="card-buttons">
           <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> BUY</button>
           <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
@@ -362,7 +381,7 @@
   </div>
 </div>
 
-<div class="row" style="margin-top: 22px; margin-bottom: 22px; padding: 20px;">
+<div class="row">
   
   <div class="col-md-3">
     <div class="card" data-state="#about">
