@@ -37,9 +37,9 @@
         <button (click)="zincSearch()">Search</button>
     </div>
  </div>
- <div *ngIf="imageZincData">
+ <!-- <div *ngIf="imageZincData">
   <img [src]="imageZincData" alt="Molecular Formula Structure">
-</div>
+</div> -->
 
 </div>
 
@@ -54,17 +54,21 @@
           </div>
         </div>
       </div>
-
-<!-- <div *ngIf="chemistryDetails">
       <div class="card-header">
-        <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2" class="structure">
+        <!-- <img src="../../../assets/icon/CHEMBL2.svg" alt="CHEMBL2" class="structure"> -->
+
+        <div *ngIf="imageZincData" class="structure">
+          <img [src]="imageZincData" alt="Molecular Formula Structure">
+        </div>
+
       </div>
       <div class="card-main">
         <div class="card-section is-active" id="about">
           <table>
-            <tr>
+            <tr *ngIf="showZincId">
                 <th>Zinc Id:</th>
-                <td>{{chemistryDetails.zincId}}</td>
+                <!-- <td>123-45-6</td> -->
+                <td>{{showZincId.zincId}}</td>
             </tr>
             <tr>
                 <th>IUPAC name:</th>
@@ -80,7 +84,6 @@
             </tr>
         </table>
         </div>
-
 
         <div class="card-section" id="experience" style="display: none;">
           <div class="card-content scrollbar">
@@ -123,13 +126,12 @@
           </div>
         </div>
       </div>
-    </div> -->
-
       <div class="card-buttons">
           <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> BUY</button>
           <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
           <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
       </div>
+
     </div>
   </div>
   <div class="col-md-3">
