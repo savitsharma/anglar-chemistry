@@ -72,6 +72,41 @@ onSearch() {
     }
   }
 
+  generate() {
+    const frm: any = document.getElementById("frmKetcher");
+    const ketcher = frm.contentWindow.ketcher;
+    const display: any = document.getElementById("output");
+    display.innerHTML = "";
+    this.generateInChI(ketcher, display);
+    this.generateInChIKey(ketcher, display);
+  }
+
+  generateInChI(ketcher: any, display: any) {
+    const promise = ketcher.getInchi();
+    promise.then(
+      function(value: any) {
+        console.log(value)
+        display.innerHTML = display.innerHTML + "\nInChI:\n" + value + "\n";
+      },
+      function(error: any) {
+        display.innerHTML = display.innerHTML + "\nInChI:\n" + error.toString() + "\n";
+      }
+      
+    );
+  }
+
+  generateInChIKey(ketcher: any, display: any) {
+    const promise = ketcher.generateInchIKey();
+    promise.then(
+      function(value: any) {
+        display.innerHTML = display.innerHTML + "\nInChIKey:\n" + value + "\n";
+      },
+      function(error: any) {
+        display.innerHTML = display.innerHTML + "\nInChIKey:\n" + error.toString() + "\n";
+      }
+    );
+  }
+
 
   // onSearch() {
   //   const searchValue = this.searchFilter.filter.trim(); 
