@@ -23,7 +23,7 @@ export class CategoriesComponent implements OnInit{
   suggestions: string[] = [];
   formData: FormData = new FormData();
   imageData: any;
-
+  
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
      private viewContainerRef: ViewContainerRef,private https: HttpClient) {
@@ -47,7 +47,7 @@ ngOnInit(): void {
 onSearch() {
   const searchValue = this.searchFilter.filter.trim();
   const formData = new FormData();
-  formData.append('smi', searchValue);
+  formData.append('compound', searchValue);
 
   this.https.post(this.url.CHEM_SEARCH_POST, formData, { responseType: 'blob' }).subscribe((data: Blob) => {
     if (data) {
