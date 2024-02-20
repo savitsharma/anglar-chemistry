@@ -15,7 +15,13 @@ export class ChemserviceService {
     throw new Error('Method not implemented.');
   }
   URL= '';
-  CHEM_SEARCH_POST = environment.apiUrl + 'searchAnyData';
+
+
+  CHEM_SEARCH_POST = environment.apiUrl + 'depict/cow/png';
+  ZINC_IDPASS_GET = environment.apiUrl + 'getByZincId/';
+  ZINC_STRUCTURE_FORMULA = environment.apiUrl + 'zincStructure';
+
+
 
   // constructor(private _snackBar: MatSnackBar) { }
   constructor(){}

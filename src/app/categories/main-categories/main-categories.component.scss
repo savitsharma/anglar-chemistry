@@ -1,13 +1,13 @@
 
 .card-content.scrollbar {
-  max-height: 90px; /* Set the maximum height as needed */
+  max-height: 90px; 
   overflow-y: auto;
 }
 
 .line {
-  border: none; /* Remove default border */
-  border-top: 1px solid black; /* Add top border with desired color and width */
-  margin: 5px 0; /* Add margin for spacing */
+  border: none; 
+  border-top: 1px solid black; 
+  margin: 5px 0;
 }
 
 .button-container{
@@ -209,7 +209,7 @@ th {
 }
 
 img {
-  width: 50px; /* Adjust the width of the images as needed */
+  width: 50px; 
 }
 
 .plus {
@@ -218,44 +218,72 @@ img {
   margin-top: 61px;
 }
 
-
-
-/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  /* Add styles for extra small devices */
   .container {
     max-width: 100%;
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  /* Add styles for small devices */
   .container {
-    max-width: 540px; /* Example value */
+    max-width: 540px;
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  /* Add styles for medium devices */
   .container {
-    max-width: 720px; /* Example value */
+    max-width: 720px; 
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  /* Add styles for large devices */
   .container {
-    max-width: 960px; /* Example value */
+    max-width: 960px;
   }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  /* Add styles for extra large devices */
   .container {
-    max-width: 1140px; /* Example value */
+    max-width: 1140px;
   }
 }           
+.search{
+  border: 1px solid #c4c4c4;
+  width: 492px;
+  align-items: center;
+  display: flex;
+  border-radius: 50px;
+  font-size: 15px;
+  position: relative;
+  left:20%;
+  top:10px;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.search input{
+  width: 300px;
+  // height:65px;
+  height: 100%;
+  border: none;
+  padding: 8px 20px;
+  outline: none;
+  font-size: 18px;
+ 
+}
+.button-src{
+  padding: 10px 110px; 
+  display: inline-block;
+}
+.button-src button{
+  padding: 4px 21px 6px 25px;
+  border-radius: 50px;
+  border: none;
+  margin: 6px -2px;
+  background-color: #0056b3;
+  color: #ffffff;
+  font-size: 18px;
+}
+.side input{
+  margin: 20px;
+}

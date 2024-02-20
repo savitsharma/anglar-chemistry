@@ -30,14 +30,22 @@
 </div>
 <div class="row" style="margin-top: 2px; margin-bottom: 22px; padding:5px">
     <div class="card" data-state="#about">
-      <div class="horizontal-items">
+        <div class="search">
+          <input class="side" id="searchQueryInput" [(ngModel)]="searchFilter.filter" (keyup)="onFocusEvent($event)"  type="text" class="search-input" placeholder="Search smiles here...">
+          <div class="button-src">
+              <button (click)="onSearch()">Search</button>
+          </div>
+       </div>
+
+      <!-- <div class="horizontal-items">
         <div class="filter">
           <div class="checkbox1">
             <input type="checkbox" id="structurecheckbox">
             <label for="structurecheckbox"></label>
           </div>
         </div>
-      </div>
+      </div> -->
+
       <div class="card-header">
         <div class="reaction-container">
           <div class="reactants">
