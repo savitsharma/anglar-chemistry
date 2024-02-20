@@ -22,6 +22,7 @@ export class CategoriesComponent implements OnInit{
   };
   suggestions: string[] = [];
   formData: FormData = new FormData();
+  imageData: any;
 
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
@@ -43,29 +44,24 @@ ngOnInit(): void {
 
 
 
-  onSearch(){
-    const searchValue = this.searchFilter.filter.trim(); 
-    console.log("searchValue", searchValue)
+onSearch() {
+  const searchValue = this.searchFilter.filter.trim();
+  const formData = new FormData();
+  formData.append('smi', searchValue);
 
-    const formData = new FormData();
-    // const apiUrl = 'http://13.201.216.250:8080/depict/cow/png/'; 
-    console.log("SearchWorking", formData);
-    formData.append('smi', searchValue);
-
-    this.https.post(this.url.CHEM_SEARCH_POST, formData).subscribe((data:any)=>{
-      console.log("data", data);
-      if(data){
-        console.log("Molecular formula structure:", data)
-      } else {
-        this.suggestions = [];
-
-      }
-    },
-    (error) => {
-      console.error('Search error:', error);
-      this.suggestions = [];
+  this.https.post(this.url.CHEM_SEARCH_POST, formData, { responseType: 'blob' }).subscribe((data: Blob) => {
+    if (data) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        // Convert image data to base64
+        this.imageData = reader.result;
+      };
+      reader.readAsDataURL(data);
+    } else {
+      // Handle error or set a default image
+      this.imageData = null;
     }
-    ) 
+  });
   }
 
   onFocusEvent(filterValue: any) {
