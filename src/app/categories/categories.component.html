@@ -38,9 +38,7 @@
                               </svg>
                             </button>
                         </div>
-                        <div *ngIf="imageData">
-                          <img [src]="imageData" alt="Molecular Formula Structure">
-                        </div>
+                       
 
                         </div>
                       </div>
@@ -67,6 +65,7 @@
                     <label class="form-check-label" for="similaritySearch">
                       Similarity Search
                     </label>
+    
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="searchType" id="exactSearch" value="exact">
@@ -81,7 +80,11 @@
                     </label>
                   </div>
               </div>
+              
             </div>
+          </div>
+          <div *ngIf="imageData">
+            <img [src]="imageData" alt="Molecular Formula Structure">
           </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 export const environment = {
     apiUrl: 'http://13.201.216.250:8080/',
+//    apiUrl: 'http://localhost:8080/',
 };
 
 // import packageInfo from '../../package.json';
