@@ -16,6 +16,9 @@ export class ChemserviceService {
   }
   URL= '';
   CHEM_SEARCH_POST = environment.apiUrl + 'depict/cow/png';
+  ZINC_IDPASS_GET = environment.apiUrl + 'getByZincId/';
+  ZINC_STRUCTURE_FORMULA = environment.apiUrl + 'zincStructure';
+
 
   // constructor(private _snackBar: MatSnackBar) { }
   constructor(){}
