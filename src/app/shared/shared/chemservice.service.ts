@@ -20,6 +20,7 @@ export class ChemserviceService {
   CHEM_SEARCH_POST = environment.apiUrl + 'searchAnyData';
   ZINC_IDPASS_GET = environment.apiUrl + 'getByZincId/';
   ZINC_STRUCTURE_FORMULA = environment.apiUrl + 'zincStructure';
+  SHOW_DATA_BY_SEARCH = environment.apiUrl + 'depict/cot/png';
 
 
 

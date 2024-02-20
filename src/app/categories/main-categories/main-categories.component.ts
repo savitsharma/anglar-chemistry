@@ -20,6 +20,11 @@ export class MainCategoriesComponent implements OnInit {
   };
   suggestions: string[] = [];
   formData: FormData = new FormData();
+  structureData:any;
+  imageZincData: any;
+  error: any;
+
+
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
      private viewContainerRef: ViewContainerRef,private https: HttpClient) { }
@@ -54,36 +59,33 @@ export class MainCategoriesComponent implements OnInit {
   }
 
 
-  onSearch(){
-    const searchValue = this.searchFilter.filter.trim(); 
-    console.log("searchValue", searchValue)
-
+  onSearch() {
+    const searchValue = this.searchFilter.filter.trim();
     const formData = new FormData();
-    console.log("SearchWorking", formData);
     formData.append('smi', searchValue);
-
-    this.https.post(this.url.CHEM_SEARCH_POST, formData).subscribe((data:any)=>{
-      console.log("data", data);
-      if(data){
-        console.log("Molecular formula structure:", data)
+  
+    this.https.post(this.url.SHOW_DATA_BY_SEARCH, formData, { responseType: 'blob' }).subscribe((response: Blob) => {
+      if (response) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          this.imageZincData = reader.result;
+          console.log("response",response);
+        };
+        reader.readAsDataURL(response);
       } else {
-        this.suggestions = [];
-
+        this.imageZincData = null;
+        console.log("ERROR.filter", this.error);
       }
-    },
-    (error) => {
-      console.error('Search error:', error);
-      this.suggestions = [];
+    });
     }
-    ) 
-  }
-
-  onFocusEvent(filterValue: any) {
-    filterValue = (filterValue.target as HTMLInputElement).value;
-    filterValue = filterValue.trim().toLowerCase();
-    console.log("getLength.length", filterValue.length)
-    if (filterValue.length === 0) {
+  
+    onFocusEvent(filterValue: any) {
+      filterValue = (filterValue.target as HTMLInputElement).value;
+      filterValue = filterValue.trim().toLowerCase();
+      console.log("getLength.length", filterValue.length)
+      if (filterValue.length === 0) {
+      }
     }
-  }
+  
 
 }

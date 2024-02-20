@@ -26,18 +26,14 @@ searchFilter = {
   zincId:'',
 };
 imageZincData: any;
+showZincId:any;
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
     private viewContainerRef: ViewContainerRef,private https: HttpClient, private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
-    // this.route.paramMap.subscribe(params => {
-    //   this.getId = params.get('zincId');
-    //   console.log('this.getId:', this.getId); 
-    // });
-    // this.getChemistryDetails;
-
-  }
+    this.getZincStructure();
+     }
 
   handleButtonClick(sectionId: string): void {
     const section = document.querySelector(sectionId);
@@ -58,46 +54,46 @@ imageZincData: any;
   }
 
 
-  zincSearch(){
-  const requestBody = {
-  zincId: this.searchFilter.zincId,
-  }
-  console.log("requestBody", requestBody);
-
-    this.http.getDataWithPost(this.url.ZINC_STRUCTURE_FORMULA, requestBody).subscribe((response:any)=>{
-      if(response.status=== 200){
-        console.log("response.zincId", response);
-      }
-      else {
-
-        this.suggestions = [];
-      } 
-    },
-    (error: any) => {   
-            console.error('Error fetching image:', error);
-          }
-    )
-}
-
-// zincSearch() {
-//   const searchValue = this.searchFilter.filter.trim();
-//   const formData = new FormData();
-//   formData.append('zincId', searchValue);
-
-//   this.https.post(this.url.ZINC_STRUCTURE_POST, formData, { responseType: 'blob' }).subscribe((response: Blob) => {
-//     if (response) {
-//       const reader = new FileReader();
-//       reader.onloadend = () => {
-//         this.imageZincData = reader.result;
-//         console.log("response",response);
-//       };
-//       reader.readAsDataURL(response);
-//     } else {
-//       this.imageZincData = null;
-//       console.log("ERROR.zincId", this.error);
-//     }
-//   });
+//   zincSearch(){
+//   const requestBody = {
+//   zincId: this.searchFilter.zincId,
 //   }
+//   console.log("requestBody", requestBody);
+
+//     this.http.getDataWithPost(this.url.ZINC_STRUCTURE_FORMULA, requestBody).subscribe((response:any)=>{
+//       if(response.status=== 200){
+//         console.log("response.zincId", response);
+//       }
+//       else {
+
+//         this.suggestions = [];
+//       } 
+//     },
+//     (error: any) => {   
+//             console.error('Error fetching image:', error);
+//           }
+//     )
+// }
+
+zincSearch() {
+  const searchValue = this.searchFilter.zincId.trim();
+  const formData = new FormData();
+  formData.append('zincId', searchValue);
+
+  this.https.post(this.url.ZINC_STRUCTURE_FORMULA, formData, { responseType: 'blob' }).subscribe((response: Blob) => {
+    if (response) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.imageZincData = reader.result;
+        console.log("response",response);
+      };
+      reader.readAsDataURL(response);
+    } else {
+      this.imageZincData = null;
+      console.log("ERROR.zincId", this.error);
+    }
+  });
+  }
 
 
 onFocusEvent(filterValue: any) {
@@ -108,25 +104,17 @@ onFocusEvent(filterValue: any) {
   }
 }
 
-// getChemistryDetails(zincId: string): void{
-//   console.log("zincId", zincId)
-//   if (!zincId) {
-//     console.error('Zinc ID is required');
-//     return;
-//   }
-  
-//   let url = this.url.ZINC_IDPASS_GET;
-//   this.https.get(url + zincId).subscribe((response:any)=>{
-//     if(response.status === 200){
-      
-//       this.chemistryDetails = response.Data.getId;
-//       console.log("this.companyDetails", this.chemistryDetails);
-//     }
-//   },(error) => {
-//     console.error('ZINCID error:', error);
-    
-//   }
-//   )
-// }
+
+getZincStructure() {
+  const zincId = ''; 
+  const url = `http://13.201.216.250:8080/zincStructure?zincId=${zincId}`;
+
+  this.https.get(url).subscribe((response: any) => {
+    // Assuming the API response contains the zincId value
+    this.showZincId = response.zincId;
+  }, (error: any) => {
+    console.error('Error fetching zinc structure:', error);
+  });
+}
 
 }

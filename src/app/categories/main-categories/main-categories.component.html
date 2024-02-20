@@ -37,21 +37,29 @@
           </div>
        </div>
 
-      <!-- <div class="horizontal-items">
-        <div class="filter">
-          <div class="checkbox1">
-            <input type="checkbox" id="structurecheckbox">
-            <label for="structurecheckbox"></label>
-          </div>
-        </div>
-      </div> -->
+     
 
       <div class="card-header">
         <div class="reaction-container">
           <div class="reactants">
             <div class="image-container">
-              <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2">
-              <div class="button-container">
+              <div class="card text-center w-85">
+               
+                <div *ngIf="imageZincData" class="structure">
+                  <img [src]="imageZincData" alt="Molecular Formula Structure">
+                </div>
+
+                <div class="card-body">
+                  <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2">
+
+                  <div *ngIf="imageZincData" class="structure">
+                    <img [src]="imageZincData" alt="Molecular Formula Structure">
+                  </div>
+                </div>
+               
+              </div>
+              
+              <!-- <div class="button-container">
                   <button title="cart" style="border: blue;">
                     <i class="fa fa-cart-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
                   </button>
@@ -67,74 +75,9 @@
                   <button title="registered" style="border: blue;">
                     <i class="fa fa-registered" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
                   </button>
-              </div>
-          </div>
-          
-            <span class="plus">+</span>
-            <div class="image-container">
-              <img src="../../../assets/icon/CHEMBL2.svg" alt="CHEMBL2">
-              <div class="button-container">
-                <button title="cart" style="border: blue;">
-                  <i class="fa fa-cart-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="external-link" style="border: blue;">
-                  <i class="fa fa-link" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="search" style="border: blue;">
-                  <i class="fa fa-search-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="bars" style="border: blue;">
-                  <i class="fa fa-bars" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="registered" style="border: blue;">
-                  <i class="fa fa-registered" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-            </div>
-          </div>  
-          </div>
-          <div class="arrow">→</div>
-          <div class="products">
-            <div class="image-container">
-              <img src="../../../assets/icon/CHEMBL3.svg" alt="CHEMBL2">
-              <div class="button-container">
-                <button title="cart" style="border: blue;">
-                  <i class="fa fa-cart-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="external-link" style="border: blue;">
-                  <i class="fa fa-link" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="search" style="border: blue;">
-                  <i class="fa fa-search-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="bars" style="border: blue;">
-                  <i class="fa fa-bars" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="registered" style="border: blue;">
-                  <i class="fa fa-registered" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-            </div>
-          </div>
-            <span class="plus">+</span>
-            <div class="image-container">
-              <img src="../../../assets/icon/CHEMBL4.svg" alt="CHEMBL2">
-              <div class="button-container">
-                <button title="cart" style="border: blue;">
-                  <i class="fa fa-cart-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="external-link" style="border: blue;">
-                  <i class="fa fa-link" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="search" style="border: blue;">
-                  <i class="fa fa-search-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="bars" style="border: blue;">
-                  <i class="fa fa-bars" aria-hidden="true"  style="color:rgb(98, 108, 134)"></i>
-                </button>
-                <button title="registered" style="border: blue;">
-                  <i class="fa fa-registered" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
-                </button>
-            </div>
-          </div>
+              </div> -->
+          </div>         
+
           </div>
         </div>
       </div>
