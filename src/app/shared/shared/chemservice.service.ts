@@ -15,7 +15,7 @@ export class ChemserviceService {
     throw new Error('Method not implemented.');
   }
   URL= '';
-  CHEM_SEARCH_POST = environment.apiUrl + 'depict/cot/png';
+  CHEM_SEARCH_POST = environment.apiUrl + 'depict/cow/png';
 
   // constructor(private _snackBar: MatSnackBar) { }
   constructor(){}
