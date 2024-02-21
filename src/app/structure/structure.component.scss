@@ -1,0 +1,22 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .card-image {
+    width: 200px; /* Set width as needed */
+    height: 150px; /* Set height as needed */
+    object-fit: contain; /* or contain, fill, etc. */
+  }
+  
+  .card-content {
+    text-align: center;
+  }
+  
