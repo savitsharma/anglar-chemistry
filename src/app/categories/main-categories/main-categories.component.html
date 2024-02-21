@@ -40,14 +40,21 @@
      
 
       <div class="card-header">
-        <div class="reaction-container">
+        
+        <div *ngIf="imageZincData; else defaultImage" class="structure">
+          <img [src]="imageZincData" alt="Molecular Formula Structure">
+        </div>
+      
+        <ng-template #defaultImage>
+          <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2">
+        </ng-template>
+        
+        <!-- <div class="reaction-container">
           <div class="reactants">
             <div class="image-container">
               <div class="card text-center w-85">
                
-                <div *ngIf="imageZincData" class="structure">
-                  <img [src]="imageZincData" alt="Molecular Formula Structure">
-                </div>
+                
 
                 <div class="card-body">
                   <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2">
@@ -59,7 +66,7 @@
                
               </div>
               
-              <!-- <div class="button-container">
+              <div class="button-container">
                   <button title="cart" style="border: blue;">
                     <i class="fa fa-cart-plus" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
                   </button>
@@ -75,11 +82,12 @@
                   <button title="registered" style="border: blue;">
                     <i class="fa fa-registered" aria-hidden="true" style="color:rgb(98, 108, 134)"></i>
                   </button>
-              </div> -->
+              </div>
           </div>         
 
           </div>
-        </div>
+        </div> -->
+
       </div>
 
       <div class="card-main" style="margin-top: 5px; margin-bottom: 5px; padding:10px">

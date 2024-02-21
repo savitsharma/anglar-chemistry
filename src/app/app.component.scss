@@ -32,7 +32,7 @@ body {
 /* Sidenav styles */
 .mat-sidenav {
   width: 157px;
-  margin-top: 70px;
+  margin-top: 100px !important;
 }
 
 /* Sidenav content styles */
@@ -134,4 +134,44 @@ body {
 
 .mat-icon{
   left:40%;
+}
+//////////LOGO
+.logo-text {
+  margin-top: 41px;
+  text-transform: none;
+  font-size: 25px;
+  vertical-align: bottom;
+  line-height: 38px;
+  letter-spacing: 1px;
+  color: #777;
+  font-family: 'Raleway', sans-serif;
+}
+.logo-text samp {
+  background: #00AEF0;
+  float: left;
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-weight: normal;
+  font-size: 30px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.logopara p{
+  line-height: 26px;
+  margin: 0 0 10px;
+  display: block;
+}
+::ng-deep.mat-expansion-indicator::after {
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  content: "";
+  display: inline-block;
+  margin-right: 12px !important;
+  padding: 3px;
+  transform: rotate(45deg);
+  vertical-align: middle;
 }

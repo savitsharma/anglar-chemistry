@@ -27,6 +27,8 @@ searchFilter = {
 };
 imageZincData: any;
 showZincId:any;
+showName: boolean = false;
+searchValue: string = '';
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
     private viewContainerRef: ViewContainerRef,private https: HttpClient, private route: ActivatedRoute,) { }
@@ -79,9 +81,11 @@ zincSearch() {
   const searchValue = this.searchFilter.zincId.trim();
   const formData = new FormData();
   formData.append('zincId', searchValue);
-
+  
   this.https.post(this.url.ZINC_STRUCTURE_FORMULA, formData, { responseType: 'blob' }).subscribe((response: Blob) => {
     if (response) {
+      this.showName= true;
+      this.searchValue = searchValue;
       const reader = new FileReader();
       reader.onloadend = () => {
         this.imageZincData = reader.result;
