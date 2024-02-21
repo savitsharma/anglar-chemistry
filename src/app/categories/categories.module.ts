@@ -10,6 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import {DialogModule} from '@angular/cdk/dialog';
+// import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
+// import { MatDialog } from '@angular/material/dialog';
+
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -28,6 +32,9 @@ import { SharedModule } from '../shared/shared.module';
     HttpClientModule,
     RouterModule,
     SharedModule,
+    DialogModule,
+    // NgbModalModule,
+    // MatDialog,
     // NgbModule,
   ]
 })
