@@ -1,10 +1,14 @@
-<mat-toolbar color="primary" style="position: fixed; width: 100%; background-color: #ffffff; /* Navbar background color */
+<mat-toolbar color="primary" style="position: fixed; width: 100%;height: 100px; background-color: #ffffff; /* Navbar background color */
 z-index: 1000; /* Ensure navbar stays above other content */ ">
 
     <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
         <mat-icon style="color: #828282;">menu</mat-icon>
     </button>
-    <span>RXN-finder</span>
+    <!-- <span>RXN-finder</span> -->
+
+<div class="logo-text"><span><samp>R</samp>RxnFin</span>der<p class="logopara" style="font-size: 50%; padding-left: 0px; margin-top: -17px !important;">the choice for biosynthetic research</p></div>
+
+
     <span class="toolbar-item-spacer"></span>
     <button mat-icon-button matTooltip="Like">
        <mat-icon style="color: #828282;">favorite</mat-icon> 
@@ -36,7 +40,7 @@ z-index: 1000; /* Ensure navbar stays above other content */ ">
   </mat-toolbar>
   
   <mat-sidenav-container class="app-container">
-    <mat-sidenav #sidenav opened="true" mode="side" [class.mat-elevation-z4]="true" class="app-sidenav" style="margin-top:64px">
+    <mat-sidenav #sidenav opened="true" mode="side" [class.mat-elevation-z4]="true" class="app-sidenav" style="margin-top:64px;width: 250px !important;">
         <mat-nav-list>
             <mat-list-item routerLink="/dashboard">
                 <img src="../../../assets/icon/dashbord.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 1px; margin-left:1px;">Ketcher
@@ -60,11 +64,28 @@ z-index: 1000; /* Ensure navbar stays above other content */ ">
                     </mat-list-item>
                 </mat-nav-list>
             </mat-expansion-panel>
-            <mat-list-item>
 
-                <button mat-button routerLink="/structure">
+
+            
+            <mat-expansion-panel [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header>
+                <button routerLinkActive="buttonColor" mat-button routerLink="/structure">
                     <img src="../../../assets/icon/chemistry-svgrepo-com.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 8px;">Structure
-                </button></mat-list-item>
+                </button>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <mat-list-item>
+                        <button routerLink="/structure/show-image" mat-button>
+                            <img src="../../../assets/icon/folder-file.svg" alt="Laptop Icon" style="width: 24px; height: 24px; margin-right: 8px;">Show Image
+                        </button>
+                    </mat-list-item>
+                   
+                </mat-nav-list>
+
+                </mat-expansion-panel>
+
+
+
   
             <mat-list-item>
                 <button mat-button>
