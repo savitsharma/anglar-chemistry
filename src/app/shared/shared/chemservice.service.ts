@@ -22,6 +22,8 @@ export class ChemserviceService {
   ZINC_STRUCTURE_FORMULA = environment.apiUrl + 'zincStructure';
   SHOW_DATA_BY_SEARCH = environment.apiUrl + 'depict/cot/png';
   SEARCH_ANY_DATA_FROM_STRUCTURE = environment.apiUrl + 'structureSearch';
+  SUBSTANCE_IMAGEDATA_ZINCID = environment.apiUrl + 'oo';
+
 
 
 
