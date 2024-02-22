@@ -7,7 +7,10 @@ import { HttpClient } from '@angular/common/http';
 import { HttpService } from '../shared/shared/http.service';
 import { ChemserviceService } from '../shared/shared/chemservice.service';
 import { error } from 'highcharts';
-
+interface ImageData {
+  base64ImageData: string;
+  zincId: string;
+}
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -23,6 +26,9 @@ export class CategoriesComponent implements OnInit{
   suggestions: string[] = [];
   formData: FormData = new FormData();
   imageData: any;
+  inchivale :any;
+  imageList: ImageData[] = [];
+  isExactSearch: any;
   
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
@@ -73,6 +79,7 @@ onSearch() {
   }
 
   generate() {
+    
     const frm: any = document.getElementById("frmKetcher");
     const ketcher = frm.contentWindow.ketcher;
     const display: any = document.getElementById("output");
@@ -81,22 +88,62 @@ onSearch() {
     this.generateInChIKey(ketcher, display);
   }
 
+ 
   generateInChI(ketcher: any, display: any) {
-    const promise = ketcher.getInchi();
-    promise.then(
-      function(value: any) {
-        console.log(value)
-        display.innerHTML = display.innerHTML + "\nInChI:\n" + value + "\n";
-      },
-      function(error: any) {
-        display.innerHTML = display.innerHTML + "\nInChI:\n" + error.toString() + "\n";
-      }
-      
+    const formData = new FormData();
+
+    const promise = ketcher.getSmiles();
+    const promiseInChI = ketcher.getInchi();
+
+    Promise.all([promise, promiseInChI])
+        .then((values: any[]) => {
+            const smilesValue = values[0];
+            const inchiValue = values[1];
+
+            // Append both SMILES and InChI values to FormData
+            formData.append('compound', smilesValue);
+            formData.append('inchi', inchiValue);
+
+
+            if (this.isExactSearch) {
+              formData.append('exactMatch', 'true');
+            } else {
+              formData.append('exactMatch', 'false');
+            }
+
+            // Update display with InChI value
+            // display.innerHTML = display.innerHTML + "\nInChI:\n" + this.imageData + "\n";
+            
+            // Send POST request with FormData
+            this.https.post<any>(this.url.CHEM_SEARCH_POST, formData)
+                .subscribe((response: any[]) => {
+                    this.imageList = [];
+                    for (let key in response) {
+          
+                      if (response.hasOwnProperty(key)) {
+                        
+                        const imageData: ImageData = { base64ImageData: response[key].imageData, zincId: response[key].zincId };
+                        console.log(imageData);
+
+                        console.log(key);
+                        this.imageList.push(imageData);
+                      }
+                    }
+                });
+        },
+        (error: any) => {
+            // Handle error
+            display.innerHTML = display.innerHTML + "\nInChI:\n" + error.toString() + "\n";
+        }
     );
-  }
+}
+onSearchTypeChange(event: any) {
+  this.isExactSearch = event.target.value === 'exact';
+  // Call generateInChI method here or any other action you want to take based on the radio button change
+}
 
   generateInChIKey(ketcher: any, display: any) {
-    const promise = ketcher.generateInchIKey();
+    const promise = ketcher.getInchi();
     promise.then(
       function(value: any) {
         display.innerHTML = display.innerHTML + "\nInChIKey:\n" + value + "\n";

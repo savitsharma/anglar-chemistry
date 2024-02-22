@@ -21,7 +21,9 @@ export class ChemserviceService {
   ZINC_IDPASS_GET = environment.apiUrl + 'getByZincId/';
   ZINC_STRUCTURE_FORMULA = environment.apiUrl + 'zincStructure';
   SHOW_DATA_BY_SEARCH = environment.apiUrl + 'depict/cot/png';
-  INCHI_STRUCTUTE_COMPOUND = environment.apiUrl + 'structureSearch';
+  SEARCH_ANY_DATA_FROM_STRUCTURE = environment.apiUrl + 'structureSearch';
+
+
 
 
 
