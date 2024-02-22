@@ -63,6 +63,7 @@
               <div class="col-md-2">
                 <!-- Content for the second column -->
                 <div class="form-check">
+                   
                     <input class="form-check-input" type="radio" name="searchType" id="similaritySearch" value="similarity">
                     <label class="form-check-label" for="similaritySearch">
                       Similarity Search
@@ -72,15 +73,17 @@
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="searchType" id="exactSearch" value="exact" (change)="onSearchTypeChange($event)">
                     <label class="form-check-label" for="exactSearch">
-                      Exact Search
+                      Exact Match
                     </label>
+    
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="searchType" id="substructureSearch" value="substructure">
-                    <label class="form-check-label" for="substructureSearch">
-                      Substructure Search
+                    <input class="form-check-input" type="radio" name="searchType" id="reactionSearch" value="similarity">
+                    <label class="form-check-label" for="reactionSearch">
+                      Reaction Search
                     </label>
                   </div>
+                 
               </div>
               
             </div>

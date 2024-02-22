@@ -14,8 +14,9 @@ export class StructureComponent {
 
   constructor(private http: HttpClient) { }
   ngOnInit(): void {
-    // No need to call getImages() here, it will be called when the button is clicked
+    this.getImages();
   }
+
 
   getImages() {
     const params = new URLSearchParams();

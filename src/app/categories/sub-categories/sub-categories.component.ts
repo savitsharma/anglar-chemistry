@@ -29,6 +29,7 @@ imageZincData: any;
 showZincId:any;
 showName: boolean = false;
 searchValue: string = '';
+showModal: boolean = false;
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
     private viewContainerRef: ViewContainerRef,private https: HttpClient, private route: ActivatedRoute,) { }
@@ -90,6 +91,7 @@ zincSearch() {
       reader.onloadend = () => {
         this.imageZincData = reader.result;
         console.log("response",response);
+
       };
       reader.readAsDataURL(response);
     } else {
@@ -97,6 +99,8 @@ zincSearch() {
       console.log("ERROR.zincId", this.error);
     }
   });
+  this.openModel();
+
   }
 
 
@@ -121,4 +125,23 @@ getZincStructure() {
   });
 }
 
+
+
+
+
+openModel() {
+  this.showModal = true;
+  const modelDiv = document.getElementById('myModal');
+  if(modelDiv!= null) {
+    modelDiv.style.display = 'block';
+  } 
+
+}
+closeModel() {
+  this.showModal = false;
+  const modelDiv = document.getElementById('myModal');
+  if(modelDiv!= null) {
+    modelDiv.style.display = 'none';
+  } 
+}
 }

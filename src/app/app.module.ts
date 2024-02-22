@@ -9,6 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { MatSelectModule } from '@angular/material/select';
+import {DialogModule} from '@angular/cdk/dialog';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { MatDialog } from '@angular/material/dialog';
+
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -26,6 +30,8 @@ import { MatSelectModule } from '@angular/material/select';
     HttpClientModule,
     RouterModule,
     SharedModule,
+    DialogModule,
+    // MatDialog,
     // NgbModule,
     // FontAwesomeModule,
     MatSelectModule,
