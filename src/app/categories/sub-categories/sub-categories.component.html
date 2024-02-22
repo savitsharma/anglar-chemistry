@@ -40,8 +40,35 @@
  <!-- <div *ngIf="imageZincData">
   <img [src]="imageZincData" alt="Molecular Formula Structure">
 </div> -->
-
 </div>
+
+<!-- <button class="btn btn-success" (click)="openModel()">Open Model</button> -->
+
+<div class="modal" id="myModal" [ngClass]="{'modal-open': showModal}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModel()"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Modal body content goes here -->
+        <h1>CHEMICAL STRUCTURE:</h1>
+        <div *ngIf="imageZincData" class="structure">
+          <img [src]="imageZincData" alt="Molecular Formula Structure">
+        </div>
+        <p>{{showName ? searchValue: ''}}</p>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closeModel()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div class="row">
   <div class="col-md-3">
@@ -56,10 +83,7 @@
       </div>
       <div class="card-header">
         <!-- <img src="../../../assets/icon/CHEMBL2.svg" alt="CHEMBL2" class="structure"> -->
-
-        <div *ngIf="imageZincData" class="structure">
-          <img [src]="imageZincData" alt="Molecular Formula Structure">
-        </div>
+       
 
       </div>
       <div class="card-main">
