@@ -54,7 +54,9 @@
                             <i class="fas fa-search"></i> Search
                           </button>
                           <p>Output:</p>
-                          <pre id="output" style="background-color: #ddd;"></pre>
+                          <pre id="output" style="background-color: #ddd;">
+                            
+                          </pre>
                     </div>        
                 </div>
             </div>
@@ -68,7 +70,7 @@
     
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="searchType" id="exactSearch" value="exact">
+                    <input class="form-check-input" type="radio" name="searchType" id="exactSearch" value="exact" (change)="onSearchTypeChange($event)">
                     <label class="form-check-label" for="exactSearch">
                       Exact Search
                     </label>
@@ -83,9 +85,19 @@
               
             </div>
           </div>
-          <div *ngIf="imageData">
+          <!-- <div *ngIf="imageData">
             <img [src]="imageData" alt="Molecular Formula Structure">
+          </div> -->
+          <div *ngIf="imageList.length > 0">
+            <h2>Images:</h2>
+            <div *ngFor="let imageData of imageList">
+              <img [src]="'data:image/png;base64,' + imageData.base64ImageData" alt="Image">
+              <p>Zinc ID: {{ imageData.zincId }}</p>
+            </div>
           </div>
+          
+          
+          
     </div>
   </div>
     
