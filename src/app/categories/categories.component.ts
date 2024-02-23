@@ -92,17 +92,21 @@ onSearch() {
   generateInChI(ketcher: any, display: any) {
     const formData = new FormData();
 
-    const promise = ketcher.getSmiles();
-    const promiseInChI = ketcher.getInchi();
+    const promise = ketcher.getInchi();
+    // const promiseInChI = ketcher.getInchi();
 
-    Promise.all([promise, promiseInChI])
-        .then((values: any[]) => {
-            const smilesValue = values[0];
-            const inchiValue = values[1];
+    // Promise.all([promise, promiseInChI])
+    promise.then(
+      (value: any) => {
+        console.log(value)
+          // Append the InChI value to FormData
+          formData.append('compound', value);
+            // const smilesValue = values[0];
+            // const inchiValue = values[1];
 
             // Append both SMILES and InChI values to FormData
-            formData.append('compound', smilesValue);
-            formData.append('inchi', inchiValue);
+            // formData.append('compound', values);
+            formData.append('inchi', value);
 
 
             if (this.isExactSearch) {
@@ -112,10 +116,10 @@ onSearch() {
             }
 
             // Update display with InChI value
-            // display.innerHTML = display.innerHTML + "\nInChI:\n" + this.imageData + "\n";
+             display.innerHTML = display.innerHTML + "\nInChI:\n" + value + "\n";
             
             // Send POST request with FormData
-            this.https.post<any>(this.url.CHEM_SEARCH_POST, formData)
+            this.https.post<any>(this.url.SEARCH_ANY_DATA_FROM_STRUCTURE, formData)
                 .subscribe((response: any[]) => {
                     this.imageList = [];
                     for (let key in response) {
