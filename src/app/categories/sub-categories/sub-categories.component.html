@@ -37,14 +37,11 @@
         <button (click)="zincSearch()">Search</button>
     </div>
  </div>
- <!-- <div *ngIf="imageZincData">
-  <img [src]="imageZincData" alt="Molecular Formula Structure">
-</div> -->
+
 </div>
 
-<!-- <button class="btn btn-success" (click)="openModel()">Open Model</button> -->
 
-<div class="modal" id="myModal" [ngClass]="{'modal-open': showModal}">
+<div class="modal" id="myModal" [ngClass]="{'modal-open': showModal}" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -52,13 +49,14 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="closeModel()"></button>
       </div>
       <div class="modal-body">
-        <!-- Modal body content goes here -->
         <h1>CHEMICAL STRUCTURE:</h1>
+        <div class="CHEMICAL">
         <div *ngIf="imageZincData" class="structure">
           <img [src]="imageZincData" alt="Molecular Formula Structure">
         </div>
-        <p>{{showName ? searchValue: ''}}</p>
-        
+        <p *ngIf="showName">{{ searchValue }}</p>
+      </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="closeModel()">Close</button>
@@ -70,8 +68,9 @@
 
 
 
+<div class="show_data">
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 data-struct" *ngFor="let imageData of imageList">
     <div class="card" data-state="#about">
       <div class="horizontal-items">
         <div class="filter">
@@ -82,16 +81,14 @@
         </div>
       </div>
       <div class="card-header">
-        <!-- <img src="../../../assets/icon/CHEMBL2.svg" alt="CHEMBL2" class="structure"> -->
-       
-
-      </div>
+        <img  width="500px" height="auto" class="card-image" [src]="'data:image/png;base64,' + imageData.base64ImageData" alt="Image">
+        </div>
       <div class="card-main">
         <div class="card-section is-active" id="about">
           <table>
             <tr>
                 <th>Zinc Id:</th>
-                <td>{{showName ? searchValue: ''}}</td>
+                <td>{{ imageData.zincId }}</td>
             </tr>
             <tr>
                 <th>IUPAC name:</th>
@@ -157,584 +154,45 @@
 
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="card" data-state="#about">
-      <div class="horizontal-items">
-        <div class="filter">
-          <div class="checkbox1">
-            <input type="checkbox" id="structurecheckbox">
-            <label for="structurecheckbox"></label>
-          </div>
-        </div>
-      </div>
-      <div class="card-header">
-        <img src="../../../assets/icon/CHEMBL2.svg" alt="CHEMBL2" class="structure">
-      </div>
-      <div class="card-main">
-        <div class="card-section is-active" id="about">
-          <table>
-            <tr>
-                <th>Zinc Id:</th>
-                <td>123-45-6</td>
-            </tr>
-            <tr>
-                <th>IUPAC name:</th>
-                <td>2-methylpropane-2-thiol</td>
-            </tr>
-            <tr>
-                <th>Melt.Point:</th>
-                <td>0°C</td>
-            </tr>
-            <tr>
-                <th>Boil.Point:</th>
-                <td>100°C</td>
-            </tr>
-        </table>
-        </div>
-        <div class="card-section" id="experience" style="display: none;">
-          <div class="card-content scrollbar">
-            <div class="card-subtitle">WORK EXPERIENCE</div>
-            <div class="card-timeline">
-              <div class="card-item" data-year="2014">
-                <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
-                <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
-              </div>
-              <div class="card-item" data-year="2016">
-                <div class="card-item-title">UI Developer at <span>GitHub</span></div>
-                <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
-              </div>
-              <div class="card-item" data-year="2018">
-                <div class="card-item-title">Illustrator at <span>Google</span></div>
-                <div class="card-item-desc">Onboarding illustrations for App.</div>
-              </div>
-              <div class="card-item" data-year="2020">
-                <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
-                <div class="card-item-desc">Responsible for the encompassing brand experience.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-section" id="contact" style="display: none;">
-          <div class="card-content">
-            <div class="card-subtitle">CONTACT</div>
-            <div class="card-contact-wrapper">
-              <div class="card-contact">
-                Algonquin Rd, Three Oaks Vintage, MI, 49128
-              </div>
-              <div class="card-contact">
-              </div>
-              <div class="card-contact">
-                william@rocheald.com
-              </div>
-              <button class="contact-me">WORK TOGETHER</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-buttons">
-          <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i>BUY</button>
-          <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
-          <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card" data-state="#about">
-      <div class="horizontal-items">
-        <div class="filter">
-          <div class="checkbox1">
-            <input type="checkbox" id="structurecheckbox">
-            <label for="structurecheckbox"></label>
-          </div>
-        </div>
-      </div>
-      <div class="card-header">
-        <img src="../../../assets/icon/CHEMBL3.svg" alt="CHEMBL2" class="structure">
-      </div>
-      <div class="card-main">
-        <div class="card-section is-active" id="about">
-          <table>
-            <tr>
-                <th>Zinc Id:</th>
-                <td>123-45-6</td>
-            </tr>
-            <tr>
-                <th>IUPAC name:</th>
-                <td>2-methylpropane-2-thiol</td>
-            </tr>
-            <tr>
-                <th>Melt.Point:</th>
-                <td>0°C</td>
-            </tr>
-            <tr>
-                <th>Boil.Point:</th>
-                <td>100°C</td>
-            </tr>
-        </table>            
-        </div>
-        <div class="card-section" id="experience" style="display: none;">
-          <div class="card-content scrollbar">
-            <div class="card-subtitle">WORK EXPERIENCE</div>
-            <div class="card-timeline">
-              <div class="card-item" data-year="2014">
-                <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
-                <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
-              </div>
-              <div class="card-item" data-year="2016">
-                <div class="card-item-title">UI Developer at <span>GitHub</span></div>
-                <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
-              </div>
-              <div class="card-item" data-year="2018">
-                <div class="card-item-title">Illustrator at <span>Google</span></div>
-                <div class="card-item-desc">Onboarding illustrations for App.</div>
-              </div>
-              <div class="card-item" data-year="2020">
-                <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
-                <div class="card-item-desc">Responsible for the encompassing brand experience.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-section" id="contact" style="display: none;">
-          <div class="card-content">
-            <div class="card-subtitle">CONTACT</div>
-            <div class="card-contact-wrapper">
-              <div class="card-contact">
-                Algonquin Rd, Three Oaks Vintage, MI, 49128
-              </div>
-              <div class="card-contact">
-              </div>
-              <div class="card-contact">
-                william@rocheald.com
-              </div>
-              <button class="contact-me">WORK TOGETHER</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-buttons">
-          <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> BUY</button>
-          <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
-          <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card" data-state="#about">
-      <div class="horizontal-items">
-        <div class="filter">
-          <div class="checkbox1">
-            <input type="checkbox" id="structurecheckbox">
-            <label for="structurecheckbox"></label>
-          </div>
-        </div>
-      </div>
-      <div class="card-header">
-        <img src="../../../assets/icon/CHEMBL4.svg" alt="CHEMBL2" class="structure">
 
-      </div>
-      <div class="card-main">
-        <div class="card-section is-active" id="about">
-          <table>
-            <tr>
-                <th>Zinc Id:</th>
-                <td>123-45-6</td>
-            </tr>
-            <tr>
-                <th>IUPAC name:</th>
-                <td>2-methylpropane-2-thiol</td>
-            </tr>
-            <tr>
-                <th>Melt.Point:</th>
-                <td>0°C</td>
-            </tr>
-            <tr>
-                <th>Boil.Point:</th>
-                <td>100°C</td>
-            </tr>
-        </table>            
-        </div>
-        <div class="card-section" id="experience" style="display: none;">
-          <div class="card-content scrollbar">
-            <div class="card-subtitle">WORK EXPERIENCE</div>
-            <div class="card-timeline">
-              <div class="card-item" data-year="2014">
-                <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
-                <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
-              </div>
-              <div class="card-item" data-year="2016">
-                <div class="card-item-title">UI Developer at <span>GitHub</span></div>
-                <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
-              </div>
-              <div class="card-item" data-year="2018">
-                <div class="card-item-title">Illustrator at <span>Google</span></div>
-                <div class="card-item-desc">Onboarding illustrations for App.</div>
-              </div>
-              <div class="card-item" data-year="2020">
-                <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
-                <div class="card-item-desc">Responsible for the encompassing brand experience.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-section" id="contact" style="display: none;">
-          <div class="card-content">
-            <div class="card-subtitle">CONTACT</div>
-            <div class="card-contact-wrapper">
-              <div class="card-contact">
-                Algonquin Rd, Three Oaks Vintage, MI, 49128
-              </div>
-              <div class="card-contact">
-              </div>
-              <div class="card-contact">
-                william@rocheald.com
-              </div>
-              <button class="contact-me">WORK TOGETHER</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-buttons">
-          <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> BUY</button>
-          <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
-          <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
-      </div>
-    </div>
-  </div>
 </div>
 
-<div class="row">
-  
-  <div class="col-md-3">
-    <div class="card" data-state="#about">
-      <div class="horizontal-items">
-        <div class="filter">
-          <div class="checkbox1">
-            <input type="checkbox" id="structurecheckbox">
-            <label for="structurecheckbox"></label>
-          </div>
-        </div>
-      </div>
-      <div class="card-header">
-        <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2" class="structure">
-      </div>
-      <div class="card-main">
-        <div class="card-section is-active" id="about">
-          <table>
-            <tr>
-                <th>Zinc Id:</th>
-                <td>123-45-6</td>
-            </tr>
-            <tr>
-                <th>IUPAC name:</th>
-                <td>2-methylpropane-2-thiol</td>
-            </tr>
-            <tr>
-                <th>Melt.Point:</th>
-                <td>0°C</td>
-            </tr>
-            <tr>
-                <th>Boil.Point:</th>
-                <td>100°C</td>
-            </tr>
-        </table>
-        </div>
-        <div class="card-section" id="experience" style="display: none;">
-          <div class="card-content scrollbar">
-            <div class="card-subtitle">WORK EXPERIENCE</div>
-            <div class="card-timeline">
-              <div class="card-item" data-year="2014">
-                <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
-                <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
-              </div>
-              <div class="card-item" data-year="2016">
-                <div class="card-item-title">UI Developer at <span>GitHub</span></div>
-                <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
-              </div>
-              <div class="card-item" data-year="2018">
-                <div class="card-item-title">Illustrator at <span>Google</span></div>
-                <div class="card-item-desc">Onboarding illustrations for App.</div>
-              </div>
-              <div class="card-item" data-year="2020">
-                <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
-                <div class="card-item-desc">Responsible for the encompassing brand experience.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-section" id="contact" style="display: none;">
-          <div class="card-content">
-            <div class="card-subtitle">CONTACT</div>
-            <div class="card-contact-wrapper">
-              <div class="card-contact">
-                Algonquin Rd, Three Oaks Vintage, MI, 49128
-              </div>
-              <div class="card-contact">
-              </div>
-              <div class="card-contact">
-                william@rocheald.com
-              </div>
-              <button class="contact-me">WORK TOGETHER</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-buttons">
-          <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> BUY</button>
-          <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
-          <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card" data-state="#about">
-      <div class="horizontal-items">
-        <div class="filter">
-          <div class="checkbox1">
-            <input type="checkbox" id="structurecheckbox">
-            <label for="structurecheckbox"></label>
-          </div>
-        </div>
-      </div>
-      <div class="card-header">
-        <img src="../../../assets/icon/CHEMBL2.svg" alt="CHEMBL2" class="structure">
-      </div>
-      <div class="card-main">
-        <div class="card-section is-active" id="about">
-          <table>
-            <tr>
-                <th>Zinc Id:</th>
-                <td>123-45-6</td>
-            </tr>
-            <tr>
-                <th>IUPAC name:</th>
-                <td>2-methylpropane-2-thiol</td>
-            </tr>
-            <tr>
-                <th>Melt.Point:</th>
-                <td>0°C</td>
-            </tr>
-            <tr>
-                <th>Boil.Point:</th>
-                <td>100°C</td>
-            </tr>
-        </table>
-        </div>
-        <div class="card-section" id="experience" style="display: none;">
-          <div class="card-content scrollbar">
-            <div class="card-subtitle">WORK EXPERIENCE</div>
-            <div class="card-timeline">
-              <div class="card-item" data-year="2014">
-                <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
-                <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
-              </div>
-              <div class="card-item" data-year="2016">
-                <div class="card-item-title">UI Developer at <span>GitHub</span></div>
-                <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
-              </div>
-              <div class="card-item" data-year="2018">
-                <div class="card-item-title">Illustrator at <span>Google</span></div>
-                <div class="card-item-desc">Onboarding illustrations for App.</div>
-              </div>
-              <div class="card-item" data-year="2020">
-                <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
-                <div class="card-item-desc">Responsible for the encompassing brand experience.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-section" id="contact" style="display: none;">
-          <div class="card-content">
-            <div class="card-subtitle">CONTACT</div>
-            <div class="card-contact-wrapper">
-              <div class="card-contact">
-                Algonquin Rd, Three Oaks Vintage, MI, 49128
-              </div>
-              <div class="card-contact">
-              </div>
-              <div class="card-contact">
-                william@rocheald.com
-              </div>
-              <button class="contact-me">WORK TOGETHER</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-buttons">
-          <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> BUY</button>
-          <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
-          <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card" data-state="#about">
-      <div class="horizontal-items">
-        <div class="filter">
-          <div class="checkbox1">
-            <input type="checkbox" id="structurecheckbox">
-            <label for="structurecheckbox"></label>
-          </div>
-        </div>
-      </div>
-      <div class="card-header">
-        <img src="../../../assets/icon/CHEMBL3.svg" alt="CHEMBL2" class="structure">
-      </div>
-      <div class="card-main">
-        <div class="card-section is-active" id="about">
-          <table>
-            <tr>
-                <th>Zinc Id:</th>
-                <td>123-45-6</td>
-            </tr>
-            <tr>
-                <th>IUPAC name:</th>
-                <td>2-methylpropane-2-thiol</td>
-            </tr>
-            <tr>
-                <th>Melt.Point:</th>
-                <td>0°C</td>
-            </tr>
-            <tr>
-                <th>Boil.Point:</th>
-                <td>100°C</td>
-            </tr>
-        </table>            
-        </div>
-        <div class="card-section" id="experience" style="display: none;">
-          <div class="card-content scrollbar">
-            <div class="card-subtitle">WORK EXPERIENCE</div>
-            <div class="card-timeline">
-              <div class="card-item" data-year="2014">
-                <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
-                <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
-              </div>
-              <div class="card-item" data-year="2016">
-                <div class="card-item-title">UI Developer at <span>GitHub</span></div>
-                <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
-              </div>
-              <div class="card-item" data-year="2018">
-                <div class="card-item-title">Illustrator at <span>Google</span></div>
-                <div class="card-item-desc">Onboarding illustrations for App.</div>
-              </div>
-              <div class="card-item" data-year="2020">
-                <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
-                <div class="card-item-desc">Responsible for the encompassing brand experience.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-section" id="contact" style="display: none;">
-          <div class="card-content">
-            <div class="card-subtitle">CONTACT</div>
-            <div class="card-contact-wrapper">
-              <div class="card-contact">
-                Algonquin Rd, Three Oaks Vintage, MI, 49128
-              </div>
-              <div class="card-contact">
-              </div>
-              <div class="card-contact">
-                william@rocheald.com
-              </div>
-              <button class="contact-me">WORK TOGETHER</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-buttons">
-          <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> BUY</button>
-          <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
-          <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card" data-state="#about">
-      <div class="horizontal-items">
-        <div class="filter">
-          <div class="checkbox1">
-            <input type="checkbox" id="structurecheckbox">
-            <label for="structurecheckbox"></label>
-          </div>
-        </div>
-      </div>
-      <div class="card-header">
-        <img src="../../../assets/icon/CHEMBL4.svg" alt="CHEMBL2" class="structure">
 
-      </div>
-      <div class="card-main">
-        <div class="card-section is-active" id="about">
-          <table>
-            <tr>
-                <th>:</th>
-                <td>123-45-6</td>
-            </tr>
-            <tr>
-                <th>IUPAC name:</th>
-                <td>2-methylpropane-2-thiol</td>
-            </tr>
-            <tr>
-                <th>Melt.Point:</th>
-                <td>0°C</td>
-            </tr>
-            <tr>
-                <th>Boil.Point:</th>
-                <td>100°C</td>
-            </tr>
-        </table>            
-        </div>
-        <div class="card-section" id="experience" style="display: none;">
-          <div class="card-content scrollbar">
-            <div class="card-subtitle">WORK EXPERIENCE</div>
-            <div class="card-timeline">
-              <div class="card-item" data-year="2014">
-                <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
-                <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
-              </div>
-              <div class="card-item" data-year="2016">
-                <div class="card-item-title">UI Developer at <span>GitHub</span></div>
-                <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
-              </div>
-              <div class="card-item" data-year="2018">
-                <div class="card-item-title">Illustrator at <span>Google</span></div>
-                <div class="card-item-desc">Onboarding illustrations for App.</div>
-              </div>
-              <div class="card-item" data-year="2020">
-                <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
-                <div class="card-item-desc">Responsible for the encompassing brand experience.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-section" id="contact" style="display: none;">
-          <div class="card-content">
-            <div class="card-subtitle">CONTACT</div>
-            <div class="card-contact-wrapper">
-              <div class="card-contact">
-                Algonquin Rd, Three Oaks Vintage, MI, 49128
-              </div>
-              <div class="card-contact">
-              </div>
-              <div class="card-contact">
-                william@rocheald.com
-              </div>
-              <button class="contact-me">WORK TOGETHER</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-buttons">
-          <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> BUY</button>
-          <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
-          <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
-      </div>
-    </div>
-  </div>
+
 </div>
+<!-- end of show_data -->
+
+
+
+<!-- <div class="row">
+<div class="show_DataStructure" *ngFor="let imageData of imageList">
+  <div class="col-md-4 col-xs-12 col-sm-6   md-clearfix lg-clearfix  sm-clearfix">
+    <article class="post post-layout post-grid post-63 type-post status-publish format-standard has-post-thumbnail hentry category-education category-learn">
+<div class="top-image">
+<figure class="entry-thumb"><a class="post-thumbnail" href="https://apusthemes.com/wp-demo/superio/attract-sales-and-profits/" aria-hidden="true">
+  <div class="image-wrapper image-loaded">
+    <img  width="388" height="250" class="card-image" [src]="'data:image/png;base64,' + imageData.base64ImageData" alt="Image">
+  </div>
+</a>
+</figure> 
+</div>
+<div class="inner-bottom">
+<div class="top-info">
+<div class="date">April 26, 2021 </div>
+<div class="list-categories">
+  <a href="https://apusthemes.com/wp-demo/superio/category/education/" class="categories-name">Education</a>
+</div>
+<div class="comments"> 1 Comment</div>
+</div>
+        <h4 class="entry-title">
+    <a href="https://apusthemes.com/wp-demo/superio/attract-sales-and-profits/">Zinc Id: {{ imageData.zincId }}</a>
+</h4>
+    <div class="description">A job ravenously while Far much that one rank beheld after outside....</div>
+<div class="readmore">
+<a class="btn-readmore text-theme" href="https://apusthemes.com/wp-demo/superio/attract-sales-and-profits/">Read More<i class="ti-angle-right"></i></a>
+</div>
+</div>
+</article> 
+ </div>
+</div>
+</div> -->
