@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpService } from '../shared/shared/http.service';
 import { ChemserviceService } from '../shared/shared/chemservice.service';
 import { error } from 'highcharts';
+import { MatSnackBar } from '@angular/material/snack-bar';
 interface ImageData {
   base64ImageData: string;
   zincId: string;
@@ -36,6 +37,7 @@ export class CategoriesComponent implements OnInit {
 
 
   constructor(
+    private snackBar: MatSnackBar,
     private sanitizer: DomSanitizer,
     private router: Router,
     private http: HttpService,
@@ -128,9 +130,12 @@ export class CategoriesComponent implements OnInit {
             
           },
           (error) => {
-            // this.url.openSnackBar(3, error.error.message);
             this.structureErrormsg = true;
             this.message = "No such records found!";
+            this.snackBar.open(this.message, 'Close', {
+              duration: 3000, // Duration in milliseconds
+              verticalPosition: 'top' // Positioning the snackbar
+            });
           }
         );
     });
