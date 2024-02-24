@@ -10,6 +10,10 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { MatSelectModule } from '@angular/material/select';
 import {DialogModule} from '@angular/cdk/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { MatDialog } from '@angular/material/dialog';
 
@@ -35,7 +39,11 @@ import {DialogModule} from '@angular/cdk/dialog';
     // NgbModule,
     // FontAwesomeModule,
     MatSelectModule,
-    
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+  
 
   ],
   providers: [],

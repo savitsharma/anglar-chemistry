@@ -2,11 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Component, NgModule, OnInit, Renderer2, ViewContainerRef } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChemserviceService } from 'src/app/shared/shared/chemservice.service';
 import { HttpService } from 'src/app/shared/shared/http.service';
 
-
+interface ImageData {
+  base64ImageData: string;
+  zincId: string;
+}
 
 @Component({
   selector: 'app-main-categories',
@@ -23,11 +26,13 @@ export class MainCategoriesComponent implements OnInit {
   structureData:any;
   imageZincData: any;
   error: any;
+  imageList: ImageData[] = [];
+  getId:any;
 
 
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
-     private viewContainerRef: ViewContainerRef,private https: HttpClient) { }
+     private viewContainerRef: ViewContainerRef,private https: HttpClient,private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
     console.log("search", this.searchFilter)
@@ -38,6 +43,11 @@ export class MainCategoriesComponent implements OnInit {
     } else {
       console.log("Error", this.searchFilter)
     }
+
+    this.route?.root?.firstChild?.data.subscribe((data: any) => {
+      this.imageList = data.imageList;
+    });
+
   }
 
   handleButtonClick(sectionId: string): void {
@@ -87,5 +97,10 @@ export class MainCategoriesComponent implements OnInit {
       }
     }
   
+
+
+    getStructureImages(getId:any){
+      
+    }
 
 }
