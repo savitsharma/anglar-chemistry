@@ -36,15 +36,34 @@ showZincId:any;
 showName: boolean = false;
 searchValue: string = '';
 showModal: boolean = false;
-
+imageLists: any[] = [];
+showData: boolean = false;
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
     private viewContainerRef: ViewContainerRef,private https: HttpClient, private route: ActivatedRoute,) { }
 
-  ngOnInit(): void {
-    this.getImages();
-    this.getZincStructure();    
-     }
+    ngOnInit(): void {
+      this.route.queryParams.subscribe(params => {
+        const dataString = params['data'];
+        // console.log("Data from query params:", dataString);
+        
+        try {
+          const data = JSON.parse(dataString);
+          if (Array.isArray(data)) {
+            this.imageLists = data;
+            this.showData = true;
+          } else {
+            console.error('Invalid data format:', data);
+            // Handle invalid data format
+          }
+        } catch (error) {
+          console.error('Error parsing data:', error);
+          // Handle parsing error
+        }
+      });
+    }
+    
+    
 
   handleButtonClick(sectionId: string): void {
     const section = document.querySelector(sectionId);
