@@ -45,7 +45,7 @@ showData: boolean = false;
     ngOnInit(): void {
       this.route.queryParams.subscribe(params => {
         const dataString = params['data'];
-        console.log("Data from query params:", dataString);
+        // console.log("Data from query params:", dataString);
         
         try {
           const data = JSON.parse(dataString);

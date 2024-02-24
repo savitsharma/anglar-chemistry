@@ -116,7 +116,7 @@ export class CategoriesComponent implements OnInit {
 
       // Send POST request with FormData
       this.https
-        .post<any>(this.url.SEARCH_ANY_DATA_FROM_STRUCTURE, formData)
+        .post<any>(this.url.CHEM_SEARCH_POST, formData)
         .subscribe(
           (response: any[]) => {
             if (isExactSearch) {
