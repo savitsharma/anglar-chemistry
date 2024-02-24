@@ -4,7 +4,7 @@
     integrity="sha512-Z+I3+vPD5OJX2xGz7RJ5ef0d8Q4OkUuYwZkXsP+QU3wPbSmJRtV7Ct+JG0qzzK8edrLoYVwWGEbYwjEGdlFYrg=="
     crossorigin="anonymous" referrerpolicy="no-referrer">
 
-<div class="container main-container main">
+<div class="container main-container main" style="margin-top: 112px;">
     <div class="line"></div>
     <div class="button-container" style="display: flex; justify-content: flex-end;">
         <button title="Database" class="btn primary search-button">
@@ -163,3 +163,30 @@
       </div>
     </div>
 </div>  
+
+
+
+
+<div class="card-header">        
+  <div *ngIf="imageList.length > 0">
+    <h2>Images:</h2>
+    <div *ngFor="let imageData of imageList">
+      <img [src]="'data:image/png;base64,' + imageData.base64ImageData" alt="Image">
+      <p>Zinc ID: {{ imageData.zincId }}</p>
+    </div>
+  </div>
+
+  <ng-template #defaultImage>
+    <h1>STRUCTURE IMAGE:</h1>
+    <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2">
+  </ng-template>
+</div>
+
+
+<!-- <div *ngIf="imageList">
+  <h2>Images:</h2>
+  <div *ngFor="let imageData of imageList">
+    <img [src]="imageData.base64ImageData" alt="Image">
+    <p>Zinc ID: {{ imageData.zincId }}</p>
+  </div>
+</div> -->

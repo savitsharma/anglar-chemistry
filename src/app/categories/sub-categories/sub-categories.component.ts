@@ -38,13 +38,12 @@ searchValue: string = '';
 showModal: boolean = false;
 
 
-
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
     private viewContainerRef: ViewContainerRef,private https: HttpClient, private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
     this.getImages();
-    this.getZincStructure();
+    this.getZincStructure();    
      }
 
   handleButtonClick(sectionId: string): void {
