@@ -36,7 +36,7 @@ showZincId:any;
 showName: boolean = false;
 searchValue: string = '';
 showModal: boolean = false;
-
+showZincStructure: boolean = false;
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
     private viewContainerRef: ViewContainerRef,private https: HttpClient, private route: ActivatedRoute,) { }
@@ -65,27 +65,6 @@ showModal: boolean = false;
   }
 
 
-//   zincSearch(){
-//   const requestBody = {
-//   zincId: this.searchFilter.zincId,
-//   }
-//   console.log("requestBody", requestBody);
-
-//     this.http.getDataWithPost(this.url.ZINC_STRUCTURE_FORMULA, requestBody).subscribe((response:any)=>{
-//       if(response.status=== 200){
-//         console.log("response.zincId", response);
-//       }
-//       else {
-
-//         this.suggestions = [];
-//       } 
-//     },
-//     (error: any) => {   
-//             console.error('Error fetching image:', error);
-//           }
-//     )
-// }
-
 zincSearch() {
   const searchValue = this.searchFilter.zincId.trim();
   const formData = new FormData();
@@ -95,6 +74,7 @@ zincSearch() {
   this.https.post(this.url.ZINC_STRUCTURE_FORMULA, formData, { responseType: 'blob' }).subscribe((response: Blob) => {
     if (response) {
       this.showName= true;
+      this.showZincStructure = true;
       this.searchValue = searchValue;
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -103,8 +83,8 @@ zincSearch() {
 
       };
       reader.readAsDataURL(response);
-      this.openModel();
-
+      this.zincId = searchValue;
+      console.log("semi",response);
     } else {
       this.imageZincData = null;
       console.log("ERROR.zincId", this.error);
@@ -115,6 +95,27 @@ zincSearch() {
 }
 
   }
+
+  // zincSearch() {
+  //   const searchValue = this.searchFilter.zincId.trim();
+  //   if (searchValue) {
+  //     // Your API call to fetch Zinc structure image
+  //     this.https.get<any>('http://13.201.216.250:8080/depict/cot/png?semi=' + searchValue)
+  //       .subscribe((response: any) => {
+  //         // Assuming the response contains base64ImageData and zincId
+  //         this.imageZincData = response.base64ImageData;
+  //         this.zincId = response.zincId;
+  //         this.showZincStructure = true; // Show the Zinc structure container
+  //       }, (error: any) => {
+  //         console.error('Error fetching Zinc structure:', error);
+  //         this.showZincStructure = false; // Hide the Zinc structure container on error
+  //       });
+  //   } else {
+  //     // Handle case when search value is empty
+  //     console.error('Search value is empty.');
+  //   }
+  // }
+
 
 
 onFocusEvent(filterValue: any) {
