@@ -58,6 +58,9 @@
       </div>
   </div>
 </div>
+<div *ngFor="let item of imageLists">
+  <img [src]="'data:image/png;base64,' + item.imageData" alt="Image">
+</div>
 
 
 
