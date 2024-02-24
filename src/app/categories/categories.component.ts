@@ -32,6 +32,7 @@ export class CategoriesComponent implements OnInit {
   isExactSearch: any;
   structureErrormsg: boolean = false;
   message:any;
+  generatedData:any;
 
 
   constructor(
@@ -101,7 +102,7 @@ export class CategoriesComponent implements OnInit {
   generateInChI(ketcher: any, display: any, isExactSearch: boolean) {
     const formData = new FormData();
 
-    const promise = ketcher.getInchi();
+    const promise = ketcher.getSmiles();
 
     promise.then((value: any) => {
       formData.append('compound', value);
@@ -119,10 +120,11 @@ export class CategoriesComponent implements OnInit {
         .subscribe(
           (response: any[]) => {
             if (isExactSearch) {
-              this.router.navigate(['main']); // Redirect to main component
+              this.router.navigate(['main'], { queryParams: { data: JSON.stringify(response) } });
             } else {
-              this.router.navigate(['/categories/sub']);
+              this.router.navigate(['/categories/sub'], { queryParams: { data: JSON.stringify(response) } });
             }
+            
           },
           (error) => {
             // this.url.openSnackBar(3, error.error.message);
