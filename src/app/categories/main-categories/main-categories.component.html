@@ -167,7 +167,7 @@
 
 
 
-<div class="card-header">        
+<div class="card-header" *ngIf="!showData">        
   <div *ngIf="imageList.length > 0">
     <h2>Images:</h2>
     <div *ngFor="let imageData of imageList">
@@ -181,6 +181,24 @@
     <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2">
   </ng-template>
 </div>
+
+
+
+<div class="container-box" *ngIf="showData">
+  <div class="scrollable-container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of imageLists">
+        <div class="card mb-3">
+          <img class="card-img-top" [src]="'data:image/png;base64,' + item.imageData" alt="Image">
+          <div class="card-body">
+            <p class="card-text">Zinc ID: {{ item.zincId }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <!-- <div *ngIf="imageList">

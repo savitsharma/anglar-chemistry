@@ -28,6 +28,8 @@ export class MainCategoriesComponent implements OnInit {
   error: any;
   imageList: ImageData[] = [];
   getId:any;
+  imageLists:any;
+  showData: boolean = false;
 
 
 
@@ -46,6 +48,27 @@ export class MainCategoriesComponent implements OnInit {
 
     this.route?.root?.firstChild?.data.subscribe((data: any) => {
       this.imageList = data.imageList;
+    });
+
+
+
+    this.route.queryParams.subscribe(params => {
+      const dataString = params['data'];
+      // console.log("Data from query params:", dataString);
+      
+      try {
+        const data = JSON.parse(dataString);
+        if (Array.isArray(data)) {
+          this.imageLists = data;
+          this.showData = true;
+        } else {
+          console.error('Invalid data format:', data);
+          // Handle invalid data format
+        }
+      } catch (error) {
+        console.error('Error parsing data:', error);
+        // Handle parsing error
+      }
     });
 
   }
