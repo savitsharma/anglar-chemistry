@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpService } from '../shared/shared/http.service';
 import { ChemserviceService } from '../shared/shared/chemservice.service';
 import { error } from 'highcharts';
+import { MatSnackBar } from '@angular/material/snack-bar';
 interface ImageData {
   base64ImageData: string;
   zincId: string;
@@ -36,6 +37,7 @@ export class CategoriesComponent implements OnInit {
 
 
   constructor(
+    private snackBar: MatSnackBar,
     private sanitizer: DomSanitizer,
     private router: Router,
     private http: HttpService,
@@ -116,20 +118,23 @@ export class CategoriesComponent implements OnInit {
 
       // Send POST request with FormData
       this.https
-        .post<any>(this.url.CHEM_SEARCH_POST, formData)
+        .post<any>(this.url.SEARCH_ANY_DATA_FROM_STRUCTURE, formData)
         .subscribe(
           (response: any[]) => {
             if (isExactSearch) {
-              this.router.navigate(['main'], { queryParams: { data: JSON.stringify(response) } });
+              this.router.navigate(['/categories/main'], { queryParams: { data: JSON.stringify(response) } });
             } else {
               this.router.navigate(['/categories/sub'], { queryParams: { data: JSON.stringify(response) } });
             }
             
           },
           (error) => {
-            // this.url.openSnackBar(3, error.error.message);
             this.structureErrormsg = true;
             this.message = "No such records found!";
+            this.snackBar.open(this.message, 'Close', {
+              duration: 3000, // Duration in milliseconds
+              verticalPosition: 'top' // Positioning the snackbar
+            });
           }
         );
     });

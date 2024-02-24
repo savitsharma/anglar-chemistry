@@ -14,6 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { MatDialog } from '@angular/material/dialog';
 
@@ -25,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     AppComponent,
   ],
   imports: [
+    MatSnackBarModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
