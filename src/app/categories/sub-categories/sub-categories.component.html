@@ -48,7 +48,8 @@
               <div class="card-body">
                   <h2 class="card-title">ZINC STRUCTURE</h2>
                   <div *ngIf="imageZincData" class="structure">
-                    <img [src]="imageZincData" alt="Molecular Formula Structure">
+                    <!-- <img [src]="imageZincData" alt="Molecular Formula Structure"> -->
+                    <img [src]="'data:image/png;base64,' + imageZincData" alt="structure-img">
                     </div>
                   <h6 class="card-subtitle mb-2 text-muted">Zinc Id: {{zincId }}</h6>
                   <p class="card-text text-muted">Seacrh More Zinc Structure</p>
@@ -58,14 +59,29 @@
       </div>
   </div>
 </div>
-<div *ngFor="let item of imageLists">
-  <img [src]="'data:image/png;base64,' + item.imageData" alt="Image">
+
+
+
+
+<div class="container-box" *ngIf="showData && !showZincStructure">
+  <div class="scrollable-container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of imageLists">
+        <div class="card mb-3">
+          <img class="card-img-top" [src]="'data:image/png;base64,' + item.imageData" alt="Image">
+          <div class="card-body">
+            <p class="card-text">Zinc ID: {{ item.zincId }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 
 
-<div class="show_data">
+<div class="show_data" *ngIf="!showData && !showZincStructure">
 <div class="row">
   <div class="col-md-3 data-struct" *ngFor="let imageData of imageList">
     <div class="card" data-state="#about">

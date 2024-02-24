@@ -36,14 +36,18 @@ showZincId:any;
 showName: boolean = false;
 searchValue: string = '';
 showModal: boolean = false;
-
+// showData:any;
+showData: boolean = false;
 showZincStructure: boolean = false;
-
+imageLists:any;
 
   constructor(private sanitizer: DomSanitizer,private router: Router, private http: HttpService, private renderer: Renderer2, private fb: FormBuilder, private url: ChemserviceService,
     private viewContainerRef: ViewContainerRef,private https: HttpClient, private route: ActivatedRoute,) { }
 
     ngOnInit(): void {
+      this.getZincStructure();
+      this.getImages();
+
       this.route.queryParams.subscribe(params => {
         const dataString = params['data'];
         // console.log("Data from query params:", dataString);
@@ -157,26 +161,6 @@ getZincStructure() {
   }, (error: any) => {
     console.error('Error fetching zinc structure:', error);
   });
-}
-
-
-
-
-
-openModel() {
-  this.showModal = true;
-  const modelDiv = document.getElementById('myModal');
-  if(modelDiv!= null) {
-    modelDiv.style.display = 'block';
-  } 
-this.zincSearch();
-}
-closeModel() {
-  this.showModal = false;
-  const modelDiv = document.getElementById('myModal');
-  if(modelDiv!= null) {
-    modelDiv.style.display = 'none';
-  } 
 }
 
 

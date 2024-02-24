@@ -280,3 +280,21 @@ td{
 
 
 //////////////////////////////////////////////////////////////
+.scrollable-container {
+  max-height: auto;
+  overflow-y: auto;
+}
+.container-box{
+  height: 1600px;
+}
+
+.container-box .row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+.container-box .col-md-4 {
+  flex: 0 0 auto;
+  width: 28.333333%;
+}
