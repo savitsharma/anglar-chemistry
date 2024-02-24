@@ -28,7 +28,9 @@
     </div>
     <div class="line"></div>
 </div>
-<div class="row" style="margin-top: 2px; margin-bottom: 22px; padding:5px">
+
+
+<div class="row" style="margin-top: 2px; margin-bottom: 22px; padding:5px" *ngIf="!showData" >
     <div class="card" data-state="#about">
         <div class="search">
           <input class="side" id="searchQueryInput" [(ngModel)]="searchFilter.filter" (keyup)="onFocusEvent($event)"  type="text" class="search-input" placeholder="Search smiles here...">
@@ -156,48 +158,46 @@
           </div>
         </div>
       </div>
-      <div class="card-buttons">
+      <!-- <div class="card-buttons">
           <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> ABOUT</button>
           <button onclick="showSection('#experience')"><i class="fas fa-briefcase"></i> INFORMATION</button>
           <button onclick="showSection('#contact')"><i class="fas fa-address-book"></i> CONTACT</button>
-      </div>
+      </div> -->
     </div>
 </div>  
 
 
 
-
-<div class="card-header" *ngIf="!showData">        
-  <div *ngIf="imageList.length > 0">
-    <h2>Images:</h2>
-    <div *ngFor="let imageData of imageList">
-      <img [src]="'data:image/png;base64,' + imageData.base64ImageData" alt="Image">
-      <p>Zinc ID: {{ imageData.zincId }}</p>
-    </div>
-  </div>
-
-  <ng-template #defaultImage>
-    <h1>STRUCTURE IMAGE:</h1>
-    <img src="../../../assets/icon/CHEMBL1.svg" alt="CHEMBL2">
-  </ng-template>
-</div>
-
-
-
-<div class="container-box" *ngIf="showData">
-  <div class="scrollable-container">
-    <div class="row">
-      <div class="col-md-4" *ngFor="let item of imageLists">
-        <div class="card mb-3">
-          <img class="card-img-top" [src]="'data:image/png;base64,' + item.imageData" alt="Image">
-          <div class="card-body">
-            <p class="card-text">Zinc ID: {{ item.zincId }}</p>
+    
+    <div class="container-box" *ngIf="showData">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-md-6 col-lg-6 card-width" *ngFor="let item of imageLists">
+            <div class="card">
+              <img class="card-img-top" [src]="'data:image/png;base64,' + item.imageData" alt="Image" style="object-fit: cover; width: 100% !important;">
+              <div class="card-body">
+                <p class="card-text" style="font-size: 18px;"><b>Zinc ID: </b> {{ item.zincId }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
