@@ -87,9 +87,14 @@
               
             </div>
           </div>
-          <!-- <div *ngIf="imageData">
-            <img [src]="imageData" alt="Molecular Formula Structure">
-          </div> -->
+          <div *ngFor="let structureImg of imageList">
+            <img [src]="'data:image/png;base64,' + structureImg.base64ImageData" alt="Image">
+
+            <!-- <img [src]="imageData" alt="Molecular Formula Structure"> -->
+          </div>
+
+
+
           <div *ngIf="imageList.length > 0">
             <h2>Images:</h2>
             <div *ngFor="let imageData of imageList">

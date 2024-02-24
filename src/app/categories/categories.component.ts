@@ -73,6 +73,7 @@ export class CategoriesComponent implements OnInit {
           reader.onloadend = () => {
             // Convert image data to base64
             this.imageData = reader.result;
+            console.log("this.imageData",this.imageData);
           };
           reader.readAsDataURL(data);
         } else {
@@ -116,11 +117,11 @@ export class CategoriesComponent implements OnInit {
 
       // Send POST request with FormData
       this.https
-        .post<any>(this.url.CHEM_SEARCH_POST, formData)
+        .post<any>(this.url.SEARCH_ANY_DATA_FROM_STRUCTURE, formData)
         .subscribe(
           (response: any[]) => {
             if (isExactSearch) {
-              this.router.navigate(['main'], { queryParams: { data: JSON.stringify(response) } });
+              this.router.navigate(['/categories/main'], { queryParams: { data: JSON.stringify(response) } });
             } else {
               this.router.navigate(['/categories/sub'], { queryParams: { data: JSON.stringify(response) } });
             }

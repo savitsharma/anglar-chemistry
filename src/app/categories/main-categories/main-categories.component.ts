@@ -52,10 +52,9 @@ export class MainCategoriesComponent implements OnInit {
 
 
 
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       const dataString = params['data'];
-      // console.log("Data from query params:", dataString);
-      
+
       try {
         const data = JSON.parse(dataString);
         if (Array.isArray(data)) {

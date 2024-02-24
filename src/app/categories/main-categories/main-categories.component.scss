@@ -296,10 +296,51 @@ img {
 
 
 //////////////////////////////////////////////////////////////
-.scrollable-container {
-  max-height: auto;
-  overflow-y: auto;
-}
-.container-box{
-  height: 600px;
+// .scrollable-container {
+//   max-height: auto;
+//   overflow-y: auto;
+// }
+// .container-box{
+//   height: 1600px;
+// }
+
+// .container-box .row{
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 70vh;
+// }
+// .container-box .col-md-4 {
+//   flex: 0 0 auto;
+//   // width: 28.333333%;
+// }
+
+// .container-box .row .card {
+//   margin: 57px;
+//   padding: 2px;
+//   background-color: #fff;
+//   border-radius: 5px;
+//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//   overflow: hidden;
+//   height: 389px;
+//   width: 461px;
+//   margin-left: -56px;
+// }
+// // .card-img-top img {
+// //   height: 231px;
+// //   width: 400px;
+// // }
+// // img {
+// //   max-width: 100%;
+// //   height: auto;
+// // }
+.container-box.card {
+  margin: 10px; 
+  padding: 2px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: auto; /* Change the height to auto to accommodate variable content */
+  width: 100%; /* Adjust the width as needed */
 }
