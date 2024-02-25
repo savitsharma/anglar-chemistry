@@ -183,4 +183,12 @@ getImages() {
     });
 }
 
+goToCategories(){
+  this.router.navigate(["/categories"]);
+}
+goToStructure(){
+  this.router.navigate(["/structure"]);
+}
+
+
 }

@@ -1,4 +1,4 @@
-<p>This will make the button clickable and direct the user to the StructureComponent when clicked. The /structure path should match the route configured for the StructureComponent in your routing module. Make sure that you have set up the appropriate route for the StructureComponent in your AppRoutingModule or any other routing module where you define your application routes.
+<!-- <p>This will make the button clickable and direct the user to the StructureComponent when clicked. The /structure path should match the route configured for the StructureComponent in your routing module. Make sure that you have set up the appropriate route for the StructureComponent in your AppRoutingModule or any other routing module where you define your application routes.
 </p>
 
 <button (click)="getImages()">Get Images</button>
@@ -10,4 +10,90 @@
       <p>Zinc ID: {{ imageData.zincId }}</p>
     </div>
   </div>
+</div> -->
+
+
+
+<div class="header-bnr overlay-black-middle" style="background-image:url(assets/images/user/bnr1.jpg);">
+  <div class="container">
+      <div class="header-bnr-entry">
+          <h1 class="text-white" style="text-align: center;">Contact Us</h1>
+          <!-- <div class="breadcrumb-row">
+              <ul class="list-inline">
+                  <li><a>Home</a></li>
+                  <li>Contact Us</li>
+              </ul>
+          </div> -->
+      </div>
+  </div>
+</div>
+
+<div class="contact-section">
+  <div class="contact-details">
+      <h4>Quick Contact</h4>
+      <p>If you have any questions simply use the following contact details.</p>
+      <ul>
+          <li>
+              <div class="icon"><i class="fa fa-map-marker"></i></div>
+              <div class="details">
+                  <h6 class="text_size">Address: <span>401, Spaze Platinum Tower, Sector - 47, Sohna Road, Gurgaon-122001</span></h6>
+                 
+              </div>
+          </li>
+          <li>
+              <div class="icon"><i class="fa fa-envelope"></i></div>
+              <div class="details">
+                  <h6 class="text_size">Email: <span>mps@example.com</span></h6>    
+              </div>
+          </li>
+          <li>
+              <div class="icon"><i class="fa fa-phone"></i></div>
+              <div class="details">
+                  <h6 class="text_size">PHONE: <span>+91 987 654 3210</span></h6>      
+              </div>
+          </li>
+      </ul>
+      <div class="social-icons">
+          <a href="https://www.gmail.com/" class="fa fa-envelope"></a>
+    </div>
+  </div>
+
+  <div class="contact-form bg-gray">
+      <h4>Send Message Us</h4>
+      <div class="mpsFormMsg"></div>
+      <form  class="mpsForm">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="form-group">
+                      <div class="input-group">
+                          <input name="name" type="text" class="form-control" placeholder="Your Name">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-12">
+                  <div class="form-group">
+                      <div class="input-group"> 
+                          <input name="email" type="email" class="form-control" placeholder="Your Email Address">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-12">
+                  <div class="form-group">
+                      <div class="input-group">
+                          <textarea name="message" rows="4" class="form-control"  placeholder="Your Message..."></textarea>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-12">
+                  <button name="submit" type="submit" value="Submit" class="site-button ">
+                  <span>Submit</span> </button>
+              </div>
+
+          </div>
+      </form>
+  </div>
+
 </div>

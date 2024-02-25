@@ -117,46 +117,7 @@
     
         <div class="card-section is-active" id="about">
         </div>
-        <div class="card-section" id="experience" style="display: none;">
-          <div class="card-content scrollbar">
-            <div class="card-subtitle">WORK EXPERIENCE</div>
-            <div class="card-timeline">
-              <div class="card-item" data-year="2014">
-                <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
-                <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
-              </div>
-              <div class="card-item" data-year="2016">
-                <div class="card-item-title">UI Developer at <span>GitHub</span></div>
-                <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
-              </div>
-              <div class="card-item" data-year="2018">
-                <div class="card-item-title">Illustrator at <span>Google</span></div>
-                <div class="card-item-desc">Onboarding illustrations for App.</div>
-              </div>
-              <div class="card-item" data-year="2020">
-                <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
-                <div class="card-item-desc">Responsible for the encompassing brand experience.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="card-section" id="contact" style="display: none;">
-          <div class="card-content">
-            <div class="card-subtitle">CONTACT</div>
-            <div class="card-contact-wrapper">
-              <div class="card-contact">
-                Algonquin Rd, Three Oaks Vintage, MI, 49128
-              </div>
-              <div class="card-contact">
-              </div>
-              <div class="card-contact">
-                william@rocheald.com
-              </div>
-              <button class="contact-me">WORK TOGETHER</button>
-            </div>
-          </div>
-        </div>
+
       </div>
       <!-- <div class="card-buttons">
           <button onclick="showSection('#about')"><i class="fas fa-info-circle"></i> ABOUT</button>
@@ -168,7 +129,7 @@
 
 
 
-    
+<!--     
     <div class="container-box" *ngIf="showData">
       <div class="col-sm-12">
         <div class="row">
@@ -182,25 +143,31 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     
 
 
+<!-- //////////////////////SHOWING REACTION STRUCTURE -->
+    <section class="container" *ngIf="showData">
+      <div>
+          <div class="row pt-2">
+           
+            <div class="col-sm-8 my-2 width_set_card rounded" *ngFor="let item of imageLists">
+              <div class="listing-cards card p-3 card_responsive1" >
+              <img class="card-img-top" [src]="'data:image/png;base64,' + item.imageData" alt="Image" style="object-fit: cover; width: 100% !important;">
+              <p class="card-text" style="font-size: 18px;"><b>Zinc ID: </b> {{ item.zincId }}</p>
+              <p class="card-text" style="font-size: 16px;"><b>Reaction Temperature: </b> {{ item.reactionAction?.normalizedValue }}</p>  
+              <p class="card-text" style="font-size: 16px;"><b>Action:</b>{{item.reactionAction?.action}}</p>
+              <p class="card-text" style="font-size: 16px;"><b>Property Type:</b>{{item.reactionAction?.propertyType}}</p>
+              <p class="card-text" style="font-size: 16px;"><b>Description:</b>{{item.reactionAction?.phraseText}}</p>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+        </section> 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- <div *ngIf="imageList">
   <h2>Images:</h2>
   <div *ngFor="let imageData of imageList">
@@ -208,3 +175,5 @@
     <p>Zinc ID: {{ imageData.zincId }}</p>
   </div>
 </div> -->
+
+

@@ -9,6 +9,9 @@ import { HttpService } from 'src/app/shared/shared/http.service';
 interface ImageData {
   base64ImageData: string;
   zincId: string;
+  action:string;
+  normalizedValue:string;
+  propertyType:string;
 }
 
 @Component({
@@ -121,8 +124,12 @@ export class MainCategoriesComponent implements OnInit {
   
 
 
-    getStructureImages(getId:any){
-      
+
+    goToCategories(){
+      this.router.navigate(["/categories"]);
+    }
+    goToStructure(){
+      this.router.navigate(["/structure"]);
     }
 
 }
