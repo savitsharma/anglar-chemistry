@@ -133,8 +133,8 @@ export class CategoriesComponent implements OnInit {
             this.structureErrormsg = true;
             this.message = "No such records found!";
             this.snackBar.open(this.message, 'Close', {
-              duration: 3000, // Duration in milliseconds
-              verticalPosition: 'top' // Positioning the snackbar
+              duration: 3000,
+              verticalPosition:'bottom'
             });
           }
         );
@@ -182,4 +182,11 @@ export class CategoriesComponent implements OnInit {
   //     }
   //   );
   // }
+
+  goToCategories(){
+    this.router.navigate(["/categories"]);
+  }
+  goToStructure(){
+    this.router.navigate(["/structure"]);
+  }
 }
