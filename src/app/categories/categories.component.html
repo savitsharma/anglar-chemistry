@@ -55,12 +55,14 @@
                           </button>
                           <!-- <p>Output:</p> -->
                           <pre id="output" style="background-color: #ddd;">                        
-                            <span class="text-danger" *ngIf="structureErrormsg">
-                              {{ message }}
-                            </span>
+                           
                           </pre>
 
-
+                          <div class="error-message" style="height: 100px;">
+                            <span class="text-danger" *ngIf="structureErrormsg" style="font-weight: bold;">
+                              <i class="fa fa-exclamation-circle" style="font-size: 36px;"></i> Error: {{ message }}
+                            </span>
+                          </div>
 
                     </div>        
                 </div>
@@ -108,3 +110,62 @@
     </div>
   </div>
     
+
+  <div class="pt-5 Set_bgcolor text-center py-3">
+
+    <h1>Explore a Molecular Structures Now!</h1>
+    <span class="text-center mb-3">WORLD-LEADING BIOSYNTHETIC <br>
+        BIG DATA AND DESIGN SERVICE PROVIDER</span>
+
+        <button class=" d-flex mx-auto mt-4" id="explore" (click)="goToCategories()">Explore Smiles</button>
+    </div>
+
+
+<footer class="footer-distributed">
+   
+    <div class="div_center">
+
+        <div>
+            <h3>RXN Finder</h3>
+        </div>
+        <div class="margin_left">
+
+            <p class="footer-links">
+                <a (click)="goToStructure()" class="link-1">Home</a>
+
+                <a >About Us</a>
+
+                <a >Contact Us</a>
+
+                <a >FAQ</a>
+
+            </p>
+        </div>
+        <div class="links cursor_pointer">
+            <div class="col-social">
+                <a href="#"><img src="assets/facebook.png" class="social-icon"></a>
+                <a href="#"><img src="assets/instagram.png" class="social-icon"></a>
+                <a href="#"><img src="assets/snapchat.png" class="social-icon"></a>
+                <a href="#"><img src="assets/twitter.png" class="social-icon"></a>
+            </div>
+        </div>
+
+
+        <!-- <i class="fa fa-map-marker">mapppp</i> -->
+        <!-- <a (click)="goToFaq()">FAQ</a>
+                </p>
+
+                <p class="footer-company-name" style="color: #706e6e;">© 2024 MPS,  All Right Reserved.</p>-->
+    </div>
+
+
+    <div class="pb-3 set_footer_div">
+        <div class="col mt-3">
+            <p class="footer-company-name">© 2024 RXN, All Right Reserved.</p>
+        </div>
+        <div class="col footer-company-name set_footer1_div">
+            <a >Privacy & Policy</a> &nbsp;<a >Terms & Conditions</a>
+        </div>
+    </div>
+
+</footer>
