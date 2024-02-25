@@ -12,6 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 interface ImageData {
   base64ImageData: string;
   zincId: string;
+  action:string;
+  normalizedValue:string;
+  propertyType:string;
 }
 @Component({
   selector: 'app-categories',

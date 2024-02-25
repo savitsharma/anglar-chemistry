@@ -21,5 +21,7 @@ export class ShowImageComponent {
   goToStructure(){
     this.router.navigate(["/structure"]);
   }
-  
+  goToShowImage(){
+    this.router.navigate(["/structure/show-image"]);
+  }
 }
