@@ -20,3 +20,232 @@
     text-align: center;
   }
   
+  ///////////////////////////////contact us
+  .header-bnr {
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+    display: table;
+    width: 100%;
+    text-align: left;
+}
+.overlay-black-middle{
+    position: relative;
+}
+.container{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+header-bnr .container {
+    display: table;
+    height: 100%;
+}
+@media (min-width: 1200px){
+.container {
+    max-width: 1170px;
+}
+}
+
+.header-bnr  {
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+    display: table;
+    width: 100%;
+    text-align: left;
+    // opacity: 0.5;
+}
+
+.overlay-black-middle{
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 300px; 
+}
+.overlay-black-middle::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(10, 10, 90, 0.734), rgba(25, 53, 179, 0.5));
+}
+
+.header-bnr-entry {
+    // position: relative;
+    z-index: 1;
+}
+.header-bnr-entry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // height: 100%;
+}
+.header-bnr h1 {
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.text-white {
+    color: #FFF;
+}
+.text-white {
+    color: #fff!important;
+}
+h1 {
+    font-size: 36px;
+    line-height: 215px;
+    text-align: center;
+    // margin-bottom: 5px;
+    margin-left: 40px;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
+    // margin-top: 50;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.contact-details,
+.contact-form
+ {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.contact-form{
+padding: 30px;
+}
+.bg-gray {
+    background-color: #ECEDF2;
+}
+h4 {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #232323;
+    font-family: 'Rubik', sans-serif;
+    margin-top: 0;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+contact-style-1 input {
+    height: 50px;
+}
+input, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+@media (min-width: 992px){
+.col-lg-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.input-group {
+    width: 100%;
+}
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    height: 50px;
+}
+.form-control {
+    padding: 10px 20px;
+    display: table-cell;
+}
+.input-group>.form-control, .input-group>.form-select {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+}
+.contact-form textarea {
+    margin-bottom: 15px; 
+    height: 50px;
+}
+.site-button {
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    vertical-align: middle;
+    font-family: roboto;
+    background-color: #2e55fa;
+    color: #fff;
+    padding: 10px 20px;
+    display: inline-block;
+    outline: none;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    line-height: 1.42857;
+    border-radius: 3px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 15px
+}
+button, select {
+    text-transform: none;
+}
+
+.text_size{
+    font-size: 15px;
+}

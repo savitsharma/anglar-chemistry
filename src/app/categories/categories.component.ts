@@ -12,6 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 interface ImageData {
   base64ImageData: string;
   zincId: string;
+  action:string;
+  normalizedValue:string;
+  propertyType:string;
 }
 @Component({
   selector: 'app-categories',
@@ -130,12 +133,18 @@ export class CategoriesComponent implements OnInit {
             
           },
           (error) => {
-            this.structureErrormsg = true;
-            this.message = "No such records found!";
-            this.snackBar.open(this.message, 'Close', {
-              duration: 3000,
-              verticalPosition:'bottom'
-            });
+            if (error) {
+              this.structureErrormsg = true;
+              this.message = "No such structure found!";
+            } else {
+              this.structureErrormsg = false;
+            }
+            // this.structureErrormsg = true;
+            // this.message = "No such structure found!";
+            // this.snackBar.open(this.message, 'Close', {
+            //   duration: 3000,
+            //   verticalPosition:'bottom'
+            // });
           }
         );
     });
