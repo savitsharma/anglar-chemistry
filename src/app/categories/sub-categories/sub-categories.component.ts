@@ -89,35 +89,42 @@ imageLists:any;
   }
 
 
-zincSearch() {
-  const searchValue = this.searchFilter.zincId.trim();
-  const formData = new FormData();
-  formData.append('zincId', searchValue);
-  
-  if (searchValue) {
-  this.https.post(this.url.ZINC_STRUCTURE_FORMULA, formData, { responseType: 'blob' }).subscribe((response: Blob) => {
-    if (response) {
-      this.showName= true;
-      this.showZincStructure = true;
-      this.searchValue = searchValue;
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        this.imageZincData = reader.result;
-        console.log("response",response);
-
-      };
-      reader.readAsDataURL(response);
-      this.zincId = searchValue;
-      console.log("semi",response);
-    } else {
-      this.imageZincData = null;
-      console.log("ERROR.zincId", this.error);
+  zincSearch() {
+    const searchValue = this.searchFilter.zincId.trim();
+    const formData = new FormData();
+    formData.append('zincId', searchValue);
+    
+    if (searchValue) {
+      this.https.post<any[]>(this.url.ZINC_STRUCTURE_FORMULA, formData, { responseType: 'json' }).subscribe((response: any[]) => {
+        if (response && response.length > 0) {
+          const firstResult = response[0]; // Get the first object in the array
+          this.showZincStructure = true;
+          this.zincId = firstResult.zincId;
+          
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            // Set the image data in the correct format
+            this.imageZincData = { imageData: firstResult.imageData };
+          };
+          reader.readAsDataURL(this.base64toBlob(firstResult.imageData));
+        } else {
+          this.imageZincData = null;
+          console.error('Error: Empty response or no data found.');
+        }
+      }, (error) => {
+        console.error('Error fetching image:', error);
+      });
     }
-  }, (error) => {
-      console.error('Error fetching image:', error);
-  });
-}
+  }
 
+  base64toBlob(base64Data: string) {
+    const byteCharacters = atob(base64Data);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: 'image/png' });
   }
 
   // zincSearch() {

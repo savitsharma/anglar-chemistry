@@ -42,22 +42,21 @@
 </div>
 
 
+
 <div class="container" *ngIf="showZincStructure">
   <div class="row">
-      <div class="col-md-12 d-flex justify-content-center"> 
-          <div class="card" style="width: 68rem;">
-              <div class="card-body">
-                  <h2 class="card-title">ZINC STRUCTURE</h2>
-                  <div *ngIf="imageZincData" class="structure">
-                    <!-- <img [src]="imageZincData" alt="Molecular Formula Structure"> -->
-                    <img [src]="'data:image/png;base64,' + imageZincData" alt="structure-img">
-                    </div>
-                  <h6 class="card-subtitle mb-2 text-muted">Zinc Id: {{zincId }}</h6>
-                  <p class="card-text text-muted">Seacrh More Zinc Structure</p>
-                 
-              </div>
+    <div class="col-md-12 d-flex justify-content-center"> 
+      <div class="card" style="width: 68rem;">
+        <div class="card-body">
+          <h2 class="card-title">ZINC STRUCTURE</h2>
+          <div *ngIf="imageZincData" class="structure">
+            <img [src]="'data:image/png;base64,' + imageZincData.imageData" alt="Molecular Formula Structure">
           </div>
+          <h6 class="card-subtitle mb-2 text-muted">Zinc Id: {{ zincId }}</h6>
+          <p class="card-text text-muted">Search More Zinc Structure</p>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 
